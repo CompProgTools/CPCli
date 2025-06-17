@@ -1,7 +1,9 @@
 from rich.console import Console
 from InquirerPy import inquirer
 from config.handler import loadConfig, saveConfig, setAccount, isAllLinked
+from subcommands.sync import fetchRating  # import fetchRating to use when linking
 import requests
+import sys
 
 console = Console()
 
@@ -31,6 +33,7 @@ def linkAccount():
                     console.print("[red]User not found on Codeforces. Try again.[/red]")
             except Exception:
                 console.print("[red]Error connecting to Codeforces. Try again.[/red]")
+
         elif platform == "LeetCode":
             url = f"https://leetcode-api-pied.vercel.app/user/{handle}"
             try:
@@ -40,15 +43,24 @@ def linkAccount():
                     console.print("[red]User not found on LeetCode. Try again.[/red]")
                 else:
                     break
-            except Exception as e:
+            except Exception:
                 console.print("[red]Error connecting to LeetCode API. Try again.[/red]")
+
         elif platform == "AtCoder":
             break
 
     setAccount(platform, handle)
-    console.print(f"[green]{platform} account linked successfully as '{handle}'[/green]")
 
-def main():
+    initialRating = fetchRating(platform, handle)
+    if initialRating is not None:
+        config = loadConfig()
+        config[f"{platform.lower()}_rating"] = initialRating
+        saveConfig(config)
+        console.print(f"[green]{platform} account linked and rating set to {initialRating}[/green]")
+    else:
+        console.print(f"[yellow]{platform} account linked, but failed to fetch rating.[/yellow]")
+
+def menu():
     options = ["View Repository"]
     if not isAllLinked():
         options.append("Link Account")
@@ -72,4 +84,12 @@ def main():
         console.print("[red]Goodbye![/red]")
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) > 1:
+        from subcommands.sync import run as syncRun
+        subcommand = sys.argv[1]
+        if subcommand == "sync":
+            syncRun()
+        else:
+            console.print(f"[red]Unknown subcommand: {subcommand}[/red]")
+    else:
+        menu()
