@@ -1,6 +1,7 @@
 from rich.console import Console
 from InquirerPy import inquirer
 from config.handler import loadConfig, saveConfig, setAccount, isAllLinked
+import requests
 
 console = Console()
 
@@ -14,9 +15,24 @@ def linkAccount():
     if platform == "Back":
         return
 
-    handle = inquirer.text(
-        message=f"Enter your {platform} username:"
-    ).execute()
+    while True:
+        handle = inquirer.text(
+            message=f"Enter your {platform} username:"
+        ).execute()
+
+        if platform == "Codeforces":
+            url = f"https://codeforces.com/api/user.rating?handle={handle}"
+            try:
+                response = requests.get(url, timeout=5)
+                data = response.json()
+                if data["status"] == "OK":
+                    break
+                else:
+                    console.print("[red]User not found on Codeforces. Try again.[/red]")
+            except Exception:
+                console.print("[red]Error connecting to Codeforces. Try again.[/red]")
+        else:
+            break
 
     setAccount(platform, handle)
     console.print(f"[green]{platform} account linked successfully as '{handle}'[/green]")
