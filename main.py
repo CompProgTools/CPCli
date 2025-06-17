@@ -31,7 +31,18 @@ def linkAccount():
                     console.print("[red]User not found on Codeforces. Try again.[/red]")
             except Exception:
                 console.print("[red]Error connecting to Codeforces. Try again.[/red]")
-        else:
+        elif platform == "LeetCode":
+            url = f"https://leetcode-api-pied.vercel.app/user/{handle}"
+            try:
+                response = requests.get(url, timeout=5)
+                data = response.json()
+                if data.get("detail") == "404: User not found":
+                    console.print("[red]User not found on LeetCode. Try again.[/red]")
+                else:
+                    break
+            except Exception as e:
+                console.print("[red]Error connecting to LeetCode API. Try again.[/red]")
+        elif platform == "AtCoder":
             break
 
     setAccount(platform, handle)
