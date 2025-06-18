@@ -40,14 +40,28 @@ def run(_):
             console.print("[green]Preferred language set to {lang}[/green]")
             
         elif choice == "Set Preferred Code Editor":
-            editor = inquirer.select(
-                message="Choose your preferred code editor: ",
-                choices=["VSCode", "Neovim", "Vim", "Sublime", "Atom", "Other"],
-                pointer=">"
+            editorMap = {
+                "VSCode": "code",
+                "Neovim": "nvim",
+                "Vim": "vim",
+                "Sublime": "subl",
+                "Atom": "atom",
+                "Other": None
+            }
+
+            editorChoice = inquirer.select(
+                message="Choose your preferred code editor:",
+                choices=list(editorMap.keys()),
+                pointer=">",
             ).execute()
-            
-            config["preferred_editor"] = editor
-            console.print(f"[green]Preferred editor set to {editor}[/green]")
+
+            if editorMap[editorChoice] is None:
+                custom = inquirer.text(message="Enter the terminal command for your editor:").execute()
+                config["preferred_editor"] = custom
+                console.print(f"[green]Preferred editor set to {custom}[/green]")
+            else:
+                config["preferred_editor"] = editorMap[editorChoice]
+                console.print(f"[green]Preferred editor set to {editorMap[editorChoice]}[/green]")
         
         elif choice == "Set Codeforces Username":
             handle = inquirer.text(message="Enter Codeforces Handle: ").execute()
