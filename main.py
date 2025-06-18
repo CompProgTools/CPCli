@@ -88,8 +88,11 @@ def menu():
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
+        
+        # initialze and get ready for command usage
         from subcommands.sync import run as syncRun
         subcommand = sys.argv[1]
+        
         if subcommand == "sync":
             syncRun()
         else:
