@@ -95,6 +95,9 @@ if __name__ == "__main__":
         elif subcommand == "test":
             from subcommands.test import run as testRun
             testRun(sys.argv[2:])
+        elif subcommand == "config":
+            from subcommands.config import run as configRun
+            configRun(sys.argv[2:])
         else:
             console.print(f"[red]Unknown subcommand: {subcommand}[/red]")
     else:
