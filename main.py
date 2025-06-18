@@ -1,9 +1,10 @@
 from rich.console import Console
 from InquirerPy import inquirer
 from config.handler import loadConfig, saveConfig, setAccount, isAllLinked
-from subcommands.sync import fetchRating  # import fetchRating to use when linking
+from subcommands.sync import fetchRating
 import requests
 import sys
+import webbrowser
 
 console = Console()
 
@@ -74,8 +75,6 @@ def menu():
         pointer=">",
     ).execute()
 
-    import webbrowser
-
     if choice == "View Repository":
         console.print("[green]Opening CPCli GitHub repository...[/green]")
         webbrowser.open("https://github.com/CompProgTools/CPCli")
@@ -88,13 +87,14 @@ def menu():
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
-        
-        # initialze and get ready for command usage
-        from subcommands.sync import run as syncRun
         subcommand = sys.argv[1]
-        
+
         if subcommand == "sync":
+            from subcommands.sync import run as syncRun
             syncRun()
+        elif subcommand == "test":
+            from subcommands.test import run as testRun
+            testRun(sys.argv[2:])
         else:
             console.print(f"[red]Unknown subcommand: {subcommand}[/red]")
     else:
