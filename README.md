@@ -6,6 +6,7 @@ A CLI tool for competitive programmers that allows you to track statistic and im
 - Sync accounts using a command to sync the rating of all your accounts at the same time
 - Add templates for certain problems (permutations, djikstra, etc) and access them easily **(coming soon)**
 - Submit code for Leetcode, and Codeforces problems throught the terminal **(coming soon if possible)**
+- Use a config to set name, change accounts, and set preferences
 
 ## Tools
 - Python
