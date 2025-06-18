@@ -12,6 +12,7 @@ def run(_):
             choices=[
                 "Set Name",
                 "Set Preferred Language",
+                "Set Preferred Code Editor",
                 "Set Codeforces Username",
                 "Set LeetCode Username",
                 "Set AtCoder Username",
@@ -37,6 +38,16 @@ def run(_):
             
             config["preferred_language"] = lang
             console.print("[green]Preferred language set to {lang}[/green]")
+            
+        elif choice == "Set Preferred Code Editor":
+            editor = inquirer.select(
+                message="Choose your preferred code editor: ",
+                choices=["VSCode", "Neovim", "Vim", "Sublime", "Atom", "Other"],
+                pointer=">"
+            ).execute()
+            
+            config["preferred_editor"] = editor
+            console.print(f"[green]Preferred editor set to {editor}[/green]")
         
         elif choice == "Set Codeforces Username":
             handle = inquirer.text(message="Enter Codeforces Handle: ").execute()
