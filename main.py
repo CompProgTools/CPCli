@@ -74,8 +74,11 @@ def menu():
         pointer=">",
     ).execute()
 
+    import webbrowser
+
     if choice == "View Repository":
-        console.print("[green]Opening repository... (not implemented yet)[/green]")
+        console.print("[green]Opening CPCli GitHub repository...[/green]")
+        webbrowser.open("https://github.com/CompProgTools/CPCli")
     elif choice == "Link Account":
         linkAccount()
     elif choice == "Coming soon...":
