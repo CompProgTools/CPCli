@@ -1,3 +1,7 @@
-site_name: My Site
+site_name: CP-Cli Documentation
 docs_dir: src_docs
 site_dir: docs
+nav:
+  - Home: index.md
+  - About: about.md
+theme: readthedocs
