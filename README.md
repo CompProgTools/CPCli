@@ -1,4 +1,4 @@
-# CPCli
+# Welcome to the CPCli project repository
 A CLI tool for competitive programmers that allows you to track statistic and improve overall workflow during competitions
 
 ## Features
