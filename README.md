@@ -2,7 +2,7 @@
 A CLI tool for competitive programmers that allows you to track statistic and improve overall workflow during competitions
 
 ## Features
-- Link accounts for LeetCode, CodeForces, and AtCoder for rating updates and etc
+- Link accounts for LeetCode, and CodeForce for rating updates and etc
 - Sync accounts using a command to sync the rating of all your accounts at the same time
 - Add templates for certain problems (permutations, djikstra, etc) and access them easily
 - Submit code for Leetcode, and Codeforces problems throught the terminal **(coming soon if possible)**

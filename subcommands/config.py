@@ -15,7 +15,6 @@ def run(_):
                 "Set Preferred Code Editor",
                 "Set Codeforces Username",
                 "Set LeetCode Username",
-                "Set AtCoder Username",
                 "Set Template Output Folder",
                 "Back"
             ],
@@ -73,11 +72,6 @@ def run(_):
             handle = inquirer.text(message="Enter LeetCode handle:").execute()
             config["leetcode"] = handle
             console.print(f"[green]LeetCode username updated to {handle}[/green]")
-            
-        elif choice == "Set AtCoder Username":
-            handle = inquirer.text(message="Enter AtCoder handle: ").execute()
-            config["atcoder"] = handle
-            console.print(f"[green]AtCoder username updated to {handle}[/green]")
         
         elif choice == "Set Template Output Folder":
             path = inquirer.text(message="Enter absolute path for template outputs to start writing code: ").execute()

@@ -11,7 +11,7 @@ console = Console()
 def linkAccount():
     platform = inquirer.select(
         message="Select platform to link:",
-        choices=["Codeforces", "LeetCode", "AtCoder", "Back"],
+        choices=["Codeforces", "LeetCode", "Back"],
         pointer=">",
     ).execute()
 
@@ -46,9 +46,6 @@ def linkAccount():
                     break
             except Exception:
                 console.print("[red]Error connecting to LeetCode API. Try again.[/red]")
-
-        elif platform == "AtCoder":
-            break
 
     setAccount(platform, handle)
 

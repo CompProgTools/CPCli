@@ -26,4 +26,4 @@ def setAccount(platform: str, handle: str):
     
 def isAllLinked():
     config = loadConfig()
-    return all(k in config for k in ["codeforces", "atcoder", "leetcode"])
+    return all(k in config for k in ["codeforces", "leetcode"])

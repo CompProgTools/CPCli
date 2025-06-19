@@ -4,7 +4,7 @@ import requests
 
 console = Console()
 
-def fetchRating(platform, handle):
+def fetchRating(platform: str, handle: str):
     platform = platform.lower()
     if platform == "leetcode":
         url = f"https://leetcode-api-pied.vercel.app/user/{handle}/contests"
@@ -16,7 +16,7 @@ def fetchRating(platform, handle):
     data = response.json()
     return extractRating(platform, data)
 
-def extractRating(platform, data):
+def extractRating(platform: str, data: str):
     try:
         if platform == "leetcode":
             userRank = data.get("userContestRanking")
@@ -27,7 +27,7 @@ def extractRating(platform, data):
     except Exception:
         return None
 
-def run():
+def run() -> None:
     config = loadConfig()
     updated = False
 
