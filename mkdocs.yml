@@ -1,0 +1,3 @@
+site_name: My Site
+docs_dir: src_docs
+site_dir: docs
