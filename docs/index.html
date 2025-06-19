@@ -117,6 +117,16 @@ cd CPCli
 <h2 id="first-time-setup">First Time Setup</h2>
 <p>Now that you've got <em>CP-Cli</em> installed, it's important to set it up properly in order to have a good experience!</p>
 <p>We will now setup the account(s) on <a href="https://leetcode.com">LeetCode</a> and <a href="https://codeforces.com">Codeforces</a></p>
+<p>In order to do the first time setup, run:</p>
+<pre><code>bash
+python3 main.py config
+</code></pre>
+<p>The <code>config</code> subcommand allows you to set your name, preferred language, code editor, Codeforces username, Leetcode username, and the template output folder.</p>
+<p>The only confusing one should be the tempalate output folder, so you can skip that and configure everything else to your liking.</p>
+<p>Once thats done you can go to <code>.cpcli/config.json</code> file and make sure everything is right. </p>
+<p><strong>REMEMBER: All your config files and everything else will be stored in the <code>.cpcli</code> folder.</strong></p>
+<p>Once you've setup your profiles, run <code>python3 main.py sync</code>. This command fetches the rating for the account(s), if this command works successfully that means your accounts are good to go!. </p>
+<p>You can move onto the next step.</p>
               
             </div>
           </div><footer>
@@ -165,5 +175,5 @@ cd CPCli
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-06-19 17:51:17.097039+00:00
+Build Date UTC : 2025-06-19 18:48:43.681328+00:00
 -->
