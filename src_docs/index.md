@@ -6,6 +6,7 @@ This is where you can find quick documentation for the commands and how to use t
 
 - [Installation](#installation)
 - [First Time Setup](#first-time-setup)
+- [Setting Up Templates](#setting-up-templates)
 
 ## Installation
 
@@ -14,12 +15,10 @@ The installation process of [CP-Cli](https://github.com/CompProgTools/CPCli) is 
 As of now, here are the installation steps:
 - Clone the repository from Github
 ```
-bash
 git clone https://github.com/CompProgTools/CPCli
 ```
 - Change directory into the repository location
 ```
-bash
 cd CPCli
 ```
 - Run the python file
@@ -47,7 +46,6 @@ We will now setup the account(s) on [LeetCode](https://leetcode.com) and [Codefo
 
 In order to do the first time setup, run:
 ```
-bash
 python3 main.py config
 ```
 
@@ -63,3 +61,37 @@ Once you've setup your profiles, run `python3 main.py sync`. This command fetche
 
 You can move onto the next step.
 
+## Setting Up Templates
+
+In order to setup a template, you must first understand what a template is. A template is basically pre-written code that is used to speed up the process during the contest. [Here](https://github.com/the-tourist/algo/blob/master/template/multithreaded.cpp) is Tourists template for multithreaded programming.
+
+It's important to have a good templates that works for *you*. While using someone elses template is a good start, you write well with your own template.
+
+In order to create and use a template that CP-Cli can recognize, run the command:
+```
+cp-cli template --make name.ext --alias alias
+```
+**BUT WAIT**
+
+In order to run this command you must first understand what each part means.
+
+The `template` subcommand is a collection of flags under the location `subcommands/template.py`. It contains 4 main commands:
+
+1. `--make`: This flag allows you to create a template file under the location `.cpcli/templates` following the `--make` flag, you must put the filename of your extension in the format `filename.extension`. This flag must be followed up by the `--alias` flag.
+
+2. `--alias`: This flag allows you to give a template an alias. In the last flag you were taught how to assign a template, in this one, you will be naming it. An alias is just a name you assign to a template for easy access.
+
+Moving onto actually using the template.
+
+In order to use the template during a contest, here is the command:
+
+```
+cp-cli template --use alias --filename name.ext
+```
+This command uses the same concepts as the last, but with a few changes in the flags used.
+
+1. `--use`: The use flag is to be used in order to call a template by its alias.
+
+2. `--filename`: The filename flag is used to create a filename with the format `filename.extension`.
+
+This simple yet powerful command opens up a file at the location defined in the config command at `python3 main.py config`. This is what the `Set Template Output Folder` option was meant for. Setting a location in this command means that when you use the use and filename flag command, a file is created at the location defined under `Set Template Output Folder` with the selected template alias.
