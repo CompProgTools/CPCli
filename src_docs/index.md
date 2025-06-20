@@ -97,6 +97,12 @@ This command uses the same concepts as the last, but with a few changes in the f
 
 This simple yet powerful command opens up a file at the location defined in the config command at `python3 main.py config`. This is what the `Set Template Output Folder` option was meant for. Setting a location in this command means that when you use the use and filename flag command, a file is created at the location defined under `Set Template Output Folder` with the selected template alias.
 
+You can also use the `--list` flag in order to list all your teamplates, their aliases, and their template file names. Here is the usage:
+
+```
+python3 main.py template --list
+```
+
 ## Syncing Accounts
 
 If you setup your account(s) using the config command, you can fetch their ratings using the command:

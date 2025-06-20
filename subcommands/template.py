@@ -48,6 +48,17 @@ def run(args):
         except FileNotFoundError:
             console.print(f"[red]Editor '{editor}' not found. Set it using `cp-cli config`[/red]")
         return
+    
+    elif "--list" in args:
+        templates = config.get("templates", {})
+        if not templates:
+            console.print("[yellow]No templates found. Use `--make` to create one.[/yellow]")
+            return
+        
+        console.print("[bold blue]Saved Templates[/bold blue]\n")
+        for alias, filename in templates.items():
+            console.print(f"[green]{alias}[/green] -> {filename}")
+        return
 
     # Handle --make
     elif "--make" in args and "--alias" in args:
