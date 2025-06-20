@@ -8,6 +8,9 @@ This is where you can find quick documentation for the commands and how to use t
 - [First Time Setup](#first-time-setup)
 - [Setting Up Templates](#setting-up-templates)
 - [Syncing Accounts](#syncing-accounts)
+- [Testing Code](#learning-how-to-test-code)
+- [LeetCode Commands](#leetcode-specific-commands)
+- [Codeforces Commands](#codeforces-specific-commands)
 
 ## Installation
 
@@ -111,3 +114,9 @@ python3 main.py sync
 ```
 
 This will show your changes in rating (if any).
+
+## Learning How To Test Code
+
+## LeetCode Specific Commands
+
+## Codeforces Specific Commands
