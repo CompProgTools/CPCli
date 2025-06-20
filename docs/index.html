@@ -50,6 +50,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#setting-up-templates">Setting Up Templates</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#syncing-accounts">Syncing Accounts</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -87,6 +89,7 @@
 <li><a href="#installation">Installation</a></li>
 <li><a href="#first-time-setup">First Time Setup</a></li>
 <li><a href="#setting-up-templates">Setting Up Templates</a></li>
+<li><a href="#syncing-accounts">Syncing Accounts</a></li>
 </ul>
 <h2 id="installation">Installation</h2>
 <p>The installation process of <a href="https://github.com/CompProgTools/CPCli">CP-Cli</a> is quite simple, as of now, its just a project with python files, but sooner of later, I will turn it into <code>.exe</code>, <code>.dmg</code>/<code>.app</code>, and installations for Linux devices.</p>
@@ -158,6 +161,11 @@
 </li>
 </ol>
 <p>This simple yet powerful command opens up a file at the location defined in the config command at <code>python3 main.py config</code>. This is what the <code>Set Template Output Folder</code> option was meant for. Setting a location in this command means that when you use the use and filename flag command, a file is created at the location defined under <code>Set Template Output Folder</code> with the selected template alias.</p>
+<h2 id="syncing-accounts">Syncing Accounts</h2>
+<p>If you setup your account(s) using the config command, you can fetch their ratings using the command:</p>
+<pre><code class="language-bash">python3 main.py sync
+</code></pre>
+<p>This will show your changes in rating (if any).</p>
               
             </div>
           </div><footer>
@@ -206,5 +214,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-06-20 01:22:09.948201+00:00
+Build Date UTC : 2025-06-20 02:17:00.028253+00:00
 -->

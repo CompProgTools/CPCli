@@ -7,6 +7,7 @@ This is where you can find quick documentation for the commands and how to use t
 - [Installation](#installation)
 - [First Time Setup](#first-time-setup)
 - [Setting Up Templates](#setting-up-templates)
+- [Syncing Accounts](#syncing-accounts)
 
 ## Installation
 
@@ -95,3 +96,12 @@ This command uses the same concepts as the last, but with a few changes in the f
 2. `--filename`: The filename flag is used to create a filename with the format `filename.extension`.
 
 This simple yet powerful command opens up a file at the location defined in the config command at `python3 main.py config`. This is what the `Set Template Output Folder` option was meant for. Setting a location in this command means that when you use the use and filename flag command, a file is created at the location defined under `Set Template Output Folder` with the selected template alias.
+
+## Syncing Accounts
+
+If you setup your account(s) using the config command, you can fetch their ratings using the command:
+```bash
+python3 main.py sync
+```
+
+This will show your changes in rating (if any).
