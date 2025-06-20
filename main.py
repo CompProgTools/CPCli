@@ -98,6 +98,9 @@ if __name__ == "__main__":
         elif subcommand == "template":
             from subcommands.template import run as templateRun
             templateRun(sys.argv[2:])
+        elif subcommand == "daily":
+            from subcommands.daily import run as dailyRun
+            dailyRun()
         else:
             console.print(f"[red]Unknown subcommand: {subcommand}[/red]")
     else:
