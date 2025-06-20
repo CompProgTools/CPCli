@@ -101,6 +101,9 @@ if __name__ == "__main__":
         elif subcommand == "daily":
             from subcommands.daily import run as dailyRun
             dailyRun()
+        elif subcommand == "cf":
+            from subcommands.cf import run as cfRun
+            cfRun(sys.argv[2:])
         else:
             console.print(f"[red]Unknown subcommand: {subcommand}[/red]")
     else:
