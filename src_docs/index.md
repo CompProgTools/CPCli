@@ -117,6 +117,34 @@ This will show your changes in rating (if any).
 
 ## Learning How To Test Code
 
+If you would like to quick test your code by using custom testcases (stdin/stdout) you can do so by using the following command:
+```bash
+python3 main.py test filename.extension
+```
+
+The format here is pretty simple to follow, but for the filename, make sure to put the full path or else *CP-Cli* wont reccognize it as a file in the source directory.
+
+Once you enter the command, you will be asked to ask the number of testcases, **which must be an integer**, after which you can enter the input for the testcase as well as the output.
+
 ## LeetCode Specific Commands
 
+As of now, the only LeetCode specific command is the `daily` subcommand. Here is how to use it:
+
+```bash
+python3 main.py daily
+```
+
+This will display todays daily question in a table format.
+
 ## Codeforces Specific Commands
+
+Since the Codeforces API is much more diverse when compared to the third-party LeetCode API, you can expect much more commands to show up.
+
+In order to use any Codeforces command, here is the format:
+```bash
+python3 main.py cf --flag
+```
+
+As of now, CP-Cli offers one command:
+
+- `--list`: This flag allows you to list upcoming contests in a nice table like format.

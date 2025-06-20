@@ -52,6 +52,12 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#syncing-accounts">Syncing Accounts</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#learning-how-to-test-code">Learning How To Test Code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#leetcode-specific-commands">LeetCode Specific Commands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#codeforces-specific-commands">Codeforces Specific Commands</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -90,6 +96,9 @@
 <li><a href="#first-time-setup">First Time Setup</a></li>
 <li><a href="#setting-up-templates">Setting Up Templates</a></li>
 <li><a href="#syncing-accounts">Syncing Accounts</a></li>
+<li><a href="#learning-how-to-test-code">Testing Code</a></li>
+<li><a href="#leetcode-specific-commands">LeetCode Commands</a></li>
+<li><a href="#codeforces-specific-commands">Codeforces Commands</a></li>
 </ul>
 <h2 id="installation">Installation</h2>
 <p>The installation process of <a href="https://github.com/CompProgTools/CPCli">CP-Cli</a> is quite simple, as of now, its just a project with python files, but sooner of later, I will turn it into <code>.exe</code>, <code>.dmg</code>/<code>.app</code>, and installations for Linux devices.</p>
@@ -169,6 +178,26 @@
 <pre><code class="language-bash">python3 main.py sync
 </code></pre>
 <p>This will show your changes in rating (if any).</p>
+<h2 id="learning-how-to-test-code">Learning How To Test Code</h2>
+<p>If you would like to quick test your code by using custom testcases (stdin/stdout) you can do so by using the following command:</p>
+<pre><code class="language-bash">python3 main.py test filename.extension
+</code></pre>
+<p>The format here is pretty simple to follow, but for the filename, make sure to put the full path or else <em>CP-Cli</em> wont reccognize it as a file in the source directory.</p>
+<p>Once you enter the command, you will be asked to ask the number of testcases, <strong>which must be an integer</strong>, after which you can enter the input for the testcase as well as the output.</p>
+<h2 id="leetcode-specific-commands">LeetCode Specific Commands</h2>
+<p>As of now, the only LeetCode specific command is the <code>daily</code> subcommand. Here is how to use it:</p>
+<pre><code class="language-bash">python3 main.py daily
+</code></pre>
+<p>This will display todays daily question in a table format.</p>
+<h2 id="codeforces-specific-commands">Codeforces Specific Commands</h2>
+<p>Since the Codeforces API is much more diverse when compared to the third-party LeetCode API, you can expect much more commands to show up.</p>
+<p>In order to use any Codeforces command, here is the format:</p>
+<pre><code class="language-bash">python3 main.py cf --flag
+</code></pre>
+<p>As of now, CP-Cli offers one command:</p>
+<ul>
+<li><code>--list</code>: This flag allows you to list upcoming contests in a nice table like format.</li>
+</ul>
               
             </div>
           </div><footer>
@@ -217,5 +246,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-06-20 02:38:23.457970+00:00
+Build Date UTC : 2025-06-20 23:28:01.064022+00:00
 -->
