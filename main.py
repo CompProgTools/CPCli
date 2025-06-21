@@ -104,6 +104,9 @@ if __name__ == "__main__":
         elif subcommand == "cf":
             from subcommands.cf import run as cfRun
             cfRun(sys.argv[2:])
+        elif subcommand == "update":
+            from subcommands.update import run as updateRun
+            updateRun(sys.argv[2:])
         else:
             console.print(f"[red]Unknown subcommand: {subcommand}[/red]")
     else:
