@@ -5,6 +5,7 @@ This is where you can find quick documentation for the commands and how to use t
 ## Table of Contents
 
 - [Installation](#installation)
+- [Setting Up The Command](#setting-up-the-command)
 - [First Time Setup](#first-time-setup)
 - [Setting Up Templates](#setting-up-templates)
 - [Syncing Accounts](#syncing-accounts)
@@ -13,6 +14,8 @@ This is where you can find quick documentation for the commands and how to use t
 - [Codeforces Commands](#codeforces-specific-commands)
 
 ## Installation
+
+**If all you want to do is update the codebase, run `python3 main.py update`**
 
 The installation process of [CP-Cli](https://github.com/CompProgTools/CPCli) is quite simple, as of now, its just a project with python files, but sooner of later, I will turn it into `.exe`, `.dmg`/`.app`, and installations for Linux devices.
 
@@ -41,6 +44,18 @@ Hi! This is CPCli, a command line tool for competitive programmers
 ```
 
 If it matches the output above, your installation of [CP-Cli](https://github.com/CompProgTools/CPCli) is good to go!
+
+# Setting Up The Command
+
+If you dont need to use the `cp-cli` command specifically, you can do so by just using `python3 main.py`, but for those who need to use the command you can do so by running the following command.
+
+```bash
+pip install .
+```
+
+This command uses the `setup.py` file in order to setup the `cp-cli` command in order for usage.
+
+You can now use the `cp-cli` command followed by any of the subcommand listed.
 
 ## First Time Setup
 

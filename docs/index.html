@@ -46,18 +46,6 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#first-time-setup">First Time Setup</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#setting-up-templates">Setting Up Templates</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#syncing-accounts">Syncing Accounts</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#learning-how-to-test-code">Learning How To Test Code</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#leetcode-specific-commands">LeetCode Specific Commands</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#codeforces-specific-commands">Codeforces Specific Commands</a>
-    </li>
     </ul>
                 </li>
               </ul>
@@ -93,6 +81,7 @@
 <h2 id="table-of-contents">Table of Contents</h2>
 <ul>
 <li><a href="#installation">Installation</a></li>
+<li><a href="#setting-up-the-command">Setting Up The Command</a></li>
 <li><a href="#first-time-setup">First Time Setup</a></li>
 <li><a href="#setting-up-templates">Setting Up Templates</a></li>
 <li><a href="#syncing-accounts">Syncing Accounts</a></li>
@@ -101,6 +90,7 @@
 <li><a href="#codeforces-specific-commands">Codeforces Commands</a></li>
 </ul>
 <h2 id="installation">Installation</h2>
+<p><strong>If all you want to do is update the codebase, run <code>python3 main.py update</code></strong></p>
 <p>The installation process of <a href="https://github.com/CompProgTools/CPCli">CP-Cli</a> is quite simple, as of now, its just a project with python files, but sooner of later, I will turn it into <code>.exe</code>, <code>.dmg</code>/<code>.app</code>, and installations for Linux devices.</p>
 <p>As of now, here are the installation steps:
 - Clone the repository from Github</p>
@@ -127,6 +117,12 @@
   Exit
 </code></pre>
 <p>If it matches the output above, your installation of <a href="https://github.com/CompProgTools/CPCli">CP-Cli</a> is good to go!</p>
+<h1 id="setting-up-the-command">Setting Up The Command</h1>
+<p>If you dont need to use the <code>cp-cli</code> command specifically, you can do so by just using <code>python3 main.py</code>, but for those who need to use the command you can do so by running the following command.</p>
+<pre><code class="language-bash">pip install .
+</code></pre>
+<p>This command uses the <code>setup.py</code> file in order to setup the <code>cp-cli</code> command in order for usage.</p>
+<p>You can now use the <code>cp-cli</code> command followed by any of the subcommand listed.</p>
 <h2 id="first-time-setup">First Time Setup</h2>
 <p>Now that you've got <em>CP-Cli</em> installed, it's important to set it up properly in order to have a good experience!</p>
 <p>We will now setup the account(s) on <a href="https://leetcode.com">LeetCode</a> and <a href="https://codeforces.com">Codeforces</a></p>
@@ -246,5 +242,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-06-20 23:28:01.064022+00:00
+Build Date UTC : 2025-06-22 03:56:09.978626+00:00
 -->

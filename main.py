@@ -3,8 +3,8 @@ from InquirerPy import inquirer
 from config.handler import loadConfig, saveConfig, setAccount, isAllLinked
 from subcommands.sync import fetchRating
 import requests
-import sys
 import webbrowser
+import sys
 
 console = Console()
 
@@ -82,7 +82,7 @@ def menu():
     elif choice == "Exit":
         console.print("[red]Goodbye![/red]")
 
-if __name__ == "__main__":
+def main():
     if len(sys.argv) > 1:
         subcommand = sys.argv[1]
 
@@ -111,3 +111,6 @@ if __name__ == "__main__":
             console.print(f"[red]Unknown subcommand: {subcommand}[/red]")
     else:
         menu()
+
+if __name__ == "__main__":
+    main()
