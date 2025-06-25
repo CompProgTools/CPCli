@@ -4,4 +4,5 @@ site_dir: docs
 nav:
   - Home: index.md
   - About: about.md
+  - Contribute: contribute.md
 theme: readthedocs
