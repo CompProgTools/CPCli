@@ -5,4 +5,5 @@ nav:
   - Home: index.md
   - About: about.md
   - Contribute: contribute.md
+  - Code of Conduct: code_of_conduct.md
 theme: readthedocs

@@ -3,7 +3,7 @@ A CLI tool for competitive programmers that allows you to track statistic and im
 
 ## Documentation
 
-You can view the documentation for the project ![here](https://compprogtools.github.io/CPCli/)
+You can view the documentation for the project [here](https://compprogtools.github.io/CPCli/)
 
 ## Features
 - Link accounts for LeetCode, and CodeForce for rating updates and etc
