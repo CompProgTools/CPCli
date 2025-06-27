@@ -89,6 +89,9 @@ def main():
         if subcommand == "sync":
             from subcommands.sync import run as syncRun
             syncRun()
+        elif subcommand == "streak":
+            from subcommands.streak import run as streakRun
+            streakRun()
         elif subcommand == "test":
             from subcommands.test import run as testRun
             testRun(sys.argv[2:])
