@@ -53,7 +53,7 @@ def run():
         
     if streak > highScore:
         highScore = streak
-        streakMetaPath.write_text(json.dumps({"highscore": highScore}), indent=4)
+        streakMetaPath.write_text(json.dumps({"highscore": highScore}, indent=4))
         
     console.print(f"[bold cyan]Your current streak:[/bold cyan] {streak} day(s)")
     console.print(f"[bold magenta]Your all-time highest streak:[/bold magenta] {highScore} day(s)")
