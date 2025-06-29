@@ -2,3 +2,7 @@ rich
 InquirerPy
 requests
 matplotlib
+urllib3
+idna
+charset-normalizer
+certifi
