@@ -110,6 +110,9 @@ def main():
         elif subcommand == "daily":
             from subcommands.daily import run as dailyRun
             dailyRun()
+        elif subcommand == "openKat":
+            from subcommands.openkat import run as openKatRun
+            openKatRun(sys.argv[2:])
         elif subcommand == "cf":
             from subcommands.cf import run as cfRun
             cfRun(sys.argv[2:])
