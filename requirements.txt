@@ -20,3 +20,9 @@ packaging
 pillow
 pyparsing
 python-dateutil
+autokattis
+beautifulsoup4
+lxml
+pandas
+seaborn
+thefuzz

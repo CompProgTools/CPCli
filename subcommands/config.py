@@ -1,6 +1,7 @@
 from config.handler import loadConfig, saveConfig
 from InquirerPy import inquirer
 from rich.console import Console
+import getpass
 
 console = Console()
 
@@ -16,6 +17,7 @@ def run(_):
                 "Set Codeforces Username",
                 "Set LeetCode Username",
                 "Set Template Output Folder",
+                "Set OpenKattis Credentials",
                 "Back"
             ],
             pointer=">",
@@ -38,6 +40,13 @@ def run(_):
             
             config["preferred_language"] = lang
             console.print("[green]Preferred language set to {lang}[/green]")
+        
+        elif choice == "Set OpenKattis Credentials":
+            kattisUser = inquirer.text(message="Enter OpenKattis Username: ").execute()
+            kattisPass = getpass.getpass("Enter OpenKattis password (hidden): ")
+            config["openkattis_username"] = kattisUser
+            config["openkattis_password"] = kattisPass
+            console.print("[green]OpenKattis credentials saved.[/green]")
             
         elif choice == "Set Preferred Code Editor":
             editorMap = {
