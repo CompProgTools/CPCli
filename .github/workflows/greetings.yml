@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: actions/first-interaction@v1
+        with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: "This is your first issue! Please be civil and be patient"
+        pr-message: "This is your first pull request! Please be civil and be patient. Also make sure your code isn't fault and meets the standard to reduce review time."
