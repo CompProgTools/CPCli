@@ -9,3 +9,5 @@ certifi
 typing-extensions
 pygments
 markdown-it-py
+pfzy
+prompt-toolkit
