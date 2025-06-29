@@ -11,3 +11,12 @@ pygments
 markdown-it-py
 pfzy
 prompt-toolkit
+contourpy
+cycler
+fonttools
+kiwisolver
+numpy
+packaging
+pillow
+pyparsing
+python-dateutil
