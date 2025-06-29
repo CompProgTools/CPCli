@@ -6,3 +6,6 @@ urllib3
 idna
 charset-normalizer
 certifi
+typing-extensions
+pygments
+markdown-it-py
