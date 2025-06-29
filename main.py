@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from rich.console import Console
 from InquirerPy import inquirer
 from config.handler import loadConfig, saveConfig, setAccount, isAllLinked
