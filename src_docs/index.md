@@ -12,6 +12,7 @@ This is where you can find quick documentation for the commands and how to use t
 - [Testing Code](#learning-how-to-test-code)
 - [LeetCode Commands](#leetcode-specific-commands)
 - [Codeforces Commands](#codeforces-specific-commands)
+- [Statistics](#statistics-commands)
 
 ## Installation
 
@@ -160,6 +161,15 @@ In order to use any Codeforces command, here is the format:
 python3 main.py cf --flag
 ```
 
-As of now, CP-Cli offers one command:
+As of now, CP-Cli offers two commands:
 
 - `--list`: This flag allows you to list upcoming contests in a nice table like format.
+- `--solved <contestId>/<index>`: This flag allows you to log a problem you've solved. The format is contestId/Index. Every problem on codeforces comes from a contest, so the id of the contest **not the contest number** and the index is which problem it is in a letter format.
+
+# Statistics Commands
+
+In order to track your progress so far, I've made some subcommands to check number of problems solved, common tags, average rating, etc. These stats include general pieces of info that *I* find useful, but if you want to contribute and add onto, feel free to do so.
+
+Here are the statistics commands:
+
+- `stats`: The stats command gives a general overview of your highest streak, number of problems solved, highest rating, average rating, etc. This command should be enough for most users, but you can customize as you want.

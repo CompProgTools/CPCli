@@ -96,6 +96,7 @@
 <li><a href="#learning-how-to-test-code">Testing Code</a></li>
 <li><a href="#leetcode-specific-commands">LeetCode Commands</a></li>
 <li><a href="#codeforces-specific-commands">Codeforces Commands</a></li>
+<li><a href="#statistics-commands">Statistics</a></li>
 </ul>
 <h2 id="installation">Installation</h2>
 <p><strong>If all you want to do is update the codebase, run <code>python3 main.py update</code></strong></p>
@@ -198,9 +199,16 @@
 <p>In order to use any Codeforces command, here is the format:</p>
 <pre><code class="language-bash">python3 main.py cf --flag
 </code></pre>
-<p>As of now, CP-Cli offers one command:</p>
+<p>As of now, CP-Cli offers two commands:</p>
 <ul>
 <li><code>--list</code>: This flag allows you to list upcoming contests in a nice table like format.</li>
+<li><code>--solved &lt;contestId&gt;/&lt;index&gt;</code>: This flag allows you to log a problem you've solved. The format is contestId/Index. Every problem on codeforces comes from a contest, so the id of the contest <strong>not the contest number</strong> and the index is which problem it is in a letter format.</li>
+</ul>
+<h1 id="statistics-commands">Statistics Commands</h1>
+<p>In order to track your progress so far, I've made some subcommands to check number of problems solved, common tags, average rating, etc. These stats include general pieces of info that <em>I</em> find useful, but if you want to contribute and add onto, feel free to do so.</p>
+<p>Here are the statistics commands:</p>
+<ul>
+<li><code>stats</code>: The stats command gives a general overview of your highest streak, number of problems solved, highest rating, average rating, etc. This command should be enough for most users, but you can customize as you want.</li>
 </ul>
               
             </div>
@@ -250,5 +258,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-06-27 03:58:27.163544+00:00
+Build Date UTC : 2025-06-29 05:30:43.469164+00:00
 -->
