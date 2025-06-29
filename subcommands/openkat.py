@@ -9,7 +9,7 @@ def run(args):
         console.print("[red]Usage: cp-cli openKat --login[/red]")
         return
     try:
-        from autokattis import OpenKattis
+        from autokattis import OpenKattis # type: ignore
     except ImportError:
         console.print("[red]autokattis is not installed. Run:[/red]")
         console.print("  [green]pip install autokattis[/green]")
