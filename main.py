@@ -92,6 +92,9 @@ def main():
         elif subcommand == "streak":
             from subcommands.streak import run as streakRun
             streakRun()
+        elif subcommand == "stats":
+            from subcommands.stats import run as statsRun
+            statsRun()
         elif subcommand == "test":
             from subcommands.test import run as testRun
             testRun(sys.argv[2:])
