@@ -29,6 +29,9 @@ See [CONTRIBUTING.md](https://github.com/CompProgTools/CPCli/blob/main/CONTRIBUT
 
 Please adhere to this project's `code of conduct`.
 
+## AI Usage
+
+AI was used in this project in order to give more ideas of what other features I could add, by using search feature for concerns online. It was also used to figure out some logical code for stuff such as Rich module, and json
 
 ## Environment Variables
 
