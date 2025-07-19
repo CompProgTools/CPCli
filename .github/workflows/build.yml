@@ -1,0 +1,54 @@
+name: Build Executables
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Build executable
+        run: |
+          pyinstaller --onefile --name cp-cli src/main.py --paths src \
+            --hidden-import src.subcommands.sync \
+            --hidden-import src.subcommands.streak \
+            --hidden-import src.subcommands.stats \
+            --hidden-import src.subcommands.graph \
+            --hidden-import src.subcommands.test \
+            --hidden-import src.subcommands.config \
+            --hidden-import src.subcommands.template \
+            --hidden-import src.subcommands.daily \
+            --hidden-import src.subcommands.openkat \
+            --hidden-import src.subcommands.cf \
+            --hidden-import src.subcommands.update \
+            --hidden-import InquirerPy.prompts.input \
+            --hidden-import InquirerPy.prompts.select \
+            --collect-all InquirerPy
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cp-cli-${{ matrix.os }}
+          path: dist/cp-cli*

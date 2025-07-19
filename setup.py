@@ -2,18 +2,50 @@ from setuptools import setup, find_packages
 
 setup(
     name="cp-cli",
-    version="0.1",
+    version="1.0.0",
+    description="Competitive Programming CLI tool for managing templates, ratings and problem data",
+    author="Kashyap Sukshavasi",
+    author_email="ksukshavasi@gmail.com",
     packages=find_packages(),
-    py_modules=["main"],
     install_requires=[
         "rich",
         "InquirerPy",
-        "requests"
+        "requests",
+        "matplotlib",
+        "urllib3",
+        "idna",
+        "charset-normalizer",
+        "certifi",
+        "typing-extensions",
+        "pygments",
+        "markdown-it-py",
+        "pfzy",
+        "prompt-toolkit",
+        "contourpy",
+        "cycler",
+        "fonttools",
+        "kiwisolver",
+        "numpy",
+        "packaging",
+        "pillow",
+        "pyparsing",
+        "python-dateutil",
+        "autokattis",
+        "beautifulsoup4",
+        "lxml",
+        "pandas",
+        "seaborn",
+        "thefuzz",
     ],
+    python_requires='>=3.8',
     entry_points={
         "console_scripts": [
-            "cp-cli = main:main"
+            "cp-cli = src.__main__:main",
         ]
     },
-    include_package_data=True
+    include_package_data=True,
+    classifiers=[
+        "Programming Language :: Python :: 3",
+        "Operating System :: OS Independent",
+    ],
 )
