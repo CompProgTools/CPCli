@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 
+import sys
+import os
+
+# Add project root (one level above this file) to sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from rich.console import Console
 from InquirerPy import inquirer
 from config.handler import loadConfig, saveConfig, setAccount, isAllLinked
-from subcommands.sync import fetchRating
+from src.subcommands.sync import fetchRating
 import requests
 import webbrowser
-import sys
 
 console = Console()
 
@@ -89,37 +94,37 @@ def main():
         subcommand = sys.argv[1]
 
         if subcommand == "sync":
-            from subcommands.sync import run as syncRun
+            from src.subcommands.sync import run as syncRun
             syncRun()
         elif subcommand == "streak":
-            from subcommands.streak import run as streakRun
+            from src.subcommands.streak import run as streakRun
             streakRun()
         elif subcommand == "stats":
-            from subcommands.stats import run as statsRun
+            from src.subcommands.stats import run as statsRun
             statsRun()
         elif subcommand == "graph":
-            from subcommands.graph import run as graphRun
+            from src.subcommands.graph import run as graphRun
             graphRun()
         elif subcommand == "test":
-            from subcommands.test import run as testRun
+            from src.subcommands.test import run as testRun
             testRun(sys.argv[2:])
         elif subcommand == "config":
-            from subcommands.config import run as configRun
+            from src.subcommands.config import run as configRun
             configRun(sys.argv[2:])
         elif subcommand == "template":
-            from subcommands.template import run as templateRun
+            from src.subcommands.template import run as templateRun
             templateRun(sys.argv[2:])
         elif subcommand == "daily":
-            from subcommands.daily import run as dailyRun
+            from src.subcommands.daily import run as dailyRun
             dailyRun()
         elif subcommand == "openKat":
-            from subcommands.openkat import run as openKatRun
+            from src.subcommands.openkat import run as openKatRun
             openKatRun(sys.argv[2:])
         elif subcommand == "cf":
-            from subcommands.cf import run as cfRun
+            from src.subcommands.cf import run as cfRun
             cfRun(sys.argv[2:])
         elif subcommand == "update":
-            from subcommands.update import run as updateRun
+            from src.subcommands.update import run as updateRun
             updateRun(sys.argv[2:])
         else:
             console.print(f"[red]Unknown subcommand: {subcommand}[/red]")
