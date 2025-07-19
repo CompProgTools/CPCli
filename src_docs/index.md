@@ -27,7 +27,8 @@ Now you will make the commands accessible by a global command.
 
 If you're on mac, run:
 ```
-sudo mv <path of the install> /usr/local/bin/  
+chmod +x <path of the install>
+sudo mv <path of the install>  /usr/local/bin/cp-cli
 ```
 
 If you're on windows, run:
