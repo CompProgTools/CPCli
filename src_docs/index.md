@@ -5,7 +5,6 @@ This is where you can find quick documentation for the commands and how to use t
 ## Table of Contents
 
 - [Installation](#installation)
-- [Setting Up The Command](#setting-up-the-command)
 - [First Time Setup](#first-time-setup)
 - [Setting Up Templates](#setting-up-templates)
 - [Syncing Accounts](#syncing-accounts)
@@ -18,20 +17,30 @@ This is where you can find quick documentation for the commands and how to use t
 
 **If all you want to do is update the codebase, run `python3 main.py update`**
 
-The installation process of [CP-Cli](https://github.com/CompProgTools/CPCli) is quite simple, as of now, its just a project with python files, but sooner of later, I will turn it into `.exe`, `.dmg`/`.app`, and installations for Linux devices.
-
 As of now, here are the installation steps:
-- Clone the repository from Github
+
+- Go to the [latest install](https://github.com/CompProgTools/CPCli/releases) of CP-Cli on the repository
+- Download the latest install for your specifc operating system
+- Copy the pathname of your install (.exe, .app, etc)
+
+Now you will make the commands accessible by a global command.
+
+If you're on mac, run:
 ```
-git clone https://github.com/CompProgTools/CPCli
+sudo mv <path of the install> /usr/local/bin/  
 ```
-- Change directory into the repository location
+
+If you're on windows, run:
 ```
-cd CPCli
+$exePath = "<path to your install>"; $dir = Split-Path $exePath; [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$dir", "User")
 ```
-- Run the python file
+**THIS COMMAND MUST BE RUN IN POWERSHELL (NOT CMD)**
+Once that's done, restart your terminal and you're good to go.
+
+Now you can test your installation by running:
+
 ```bash
-python3 main.py
+cp-cli
 ```
 
 - Test the output, does it match the following?
@@ -46,18 +55,6 @@ Hi! This is CPCli, a command line tool for competitive programmers
 
 If it matches the output above, your installation of [CP-Cli](https://github.com/CompProgTools/CPCli) is good to go!
 
-# Setting Up The Command
-
-If you dont need to use the `cp-cli` command specifically, you can do so by just using `python3 main.py`, but for those who need to use the command you can do so by running the following command.
-
-```bash
-pip install .
-```
-
-This command uses the `setup.py` file in order to setup the `cp-cli` command in order for usage.
-
-You can now use the `cp-cli` command followed by any of the subcommand listed.
-
 ## First Time Setup
 
 Now that you've got *CP-Cli* installed, it's important to set it up properly in order to have a good experience!
@@ -65,8 +62,8 @@ Now that you've got *CP-Cli* installed, it's important to set it up properly in 
 We will now setup the account(s) on [LeetCode](https://leetcode.com) and [Codeforces](https://codeforces.com)
 
 In order to do the first time setup, run:
-```
-python3 main.py config
+```bash
+cp-cli config
 ```
 
 The `config` subcommand allows you to set your name, preferred language, code editor, Codeforces username, Leetcode username, and the template output folder.
@@ -88,7 +85,7 @@ In order to setup a template, you must first understand what a template is. A te
 It's important to have a good templates that works for *you*. While using someone elses template is a good start, you write well with your own template.
 
 In order to create and use a template that CP-Cli can recognize, run the command:
-```
+```bash
 cp-cli template --make name.ext --alias alias
 ```
 **BUT WAIT**
@@ -105,7 +102,7 @@ Moving onto actually using the template.
 
 In order to use the template during a contest, here is the command:
 
-```
+```bash
 cp-cli template --use alias --filename name.ext
 ```
 This command uses the same concepts as the last, but with a few changes in the flags used.
@@ -118,15 +115,15 @@ This simple yet powerful command opens up a file at the location defined in the 
 
 You can also use the `--list` flag in order to list all your teamplates, their aliases, and their template file names. Here is the usage:
 
-```
-python3 main.py template --list
+```bash
+cp-cli template --list
 ```
 
 ## Syncing Accounts
 
 If you setup your account(s) using the config command, you can fetch their ratings using the command:
 ```bash
-python3 main.py sync
+cp-cli sync
 ```
 
 This will show your changes in rating (if any).
@@ -135,7 +132,7 @@ This will show your changes in rating (if any).
 
 If you would like to quick test your code by using custom testcases (stdin/stdout) you can do so by using the following command:
 ```bash
-python3 main.py test filename.extension
+cp-cli test filename.extension
 ```
 
 The format here is pretty simple to follow, but for the filename, make sure to put the full path or else *CP-Cli* wont reccognize it as a file in the source directory.
@@ -147,7 +144,7 @@ Once you enter the command, you will be asked to ask the number of testcases, **
 As of now, the only LeetCode specific command is the `daily` subcommand. Here is how to use it:
 
 ```bash
-python3 main.py daily
+cp-cli daily
 ```
 
 This will display todays daily question in a table format.
@@ -158,7 +155,7 @@ Since the Codeforces API is much more diverse when compared to the third-party L
 
 In order to use any Codeforces command, here is the format:
 ```bash
-python3 main.py cf --flag
+cp-cli cf --flag
 ```
 
 As of now, CP-Cli offers two commands:

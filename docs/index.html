@@ -46,6 +46,18 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#first-time-setup">First Time Setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#setting-up-templates">Setting Up Templates</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#syncing-accounts">Syncing Accounts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#learning-how-to-test-code">Learning How To Test Code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#leetcode-specific-commands">LeetCode Specific Commands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#codeforces-specific-commands">Codeforces Specific Commands</a>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -89,7 +101,6 @@
 <h2 id="table-of-contents">Table of Contents</h2>
 <ul>
 <li><a href="#installation">Installation</a></li>
-<li><a href="#setting-up-the-command">Setting Up The Command</a></li>
 <li><a href="#first-time-setup">First Time Setup</a></li>
 <li><a href="#setting-up-templates">Setting Up Templates</a></li>
 <li><a href="#syncing-accounts">Syncing Accounts</a></li>
@@ -100,20 +111,23 @@
 </ul>
 <h2 id="installation">Installation</h2>
 <p><strong>If all you want to do is update the codebase, run <code>python3 main.py update</code></strong></p>
-<p>The installation process of <a href="https://github.com/CompProgTools/CPCli">CP-Cli</a> is quite simple, as of now, its just a project with python files, but sooner of later, I will turn it into <code>.exe</code>, <code>.dmg</code>/<code>.app</code>, and installations for Linux devices.</p>
-<p>As of now, here are the installation steps:
-- Clone the repository from Github</p>
-<pre><code>git clone https://github.com/CompProgTools/CPCli
-</code></pre>
+<p>As of now, here are the installation steps:</p>
 <ul>
-<li>Change directory into the repository location</li>
+<li>Go to the <a href="https://github.com/CompProgTools/CPCli/releases">latest install</a> of CP-Cli on the repository</li>
+<li>Download the latest install for your specifc operating system</li>
+<li>Copy the pathname of your install (.exe, .app, etc)</li>
 </ul>
-<pre><code>cd CPCli
+<p>Now you will make the commands accessible by a global command.</p>
+<p>If you're on mac, run:</p>
+<pre><code>sudo mv &lt;path of the install&gt; /usr/local/bin/  
 </code></pre>
-<ul>
-<li>Run the python file</li>
-</ul>
-<pre><code class="language-bash">python3 main.py
+<p>If you're on windows, run:</p>
+<pre><code>$exePath = &quot;&lt;path to your install&gt;&quot;; $dir = Split-Path $exePath; [Environment]::SetEnvironmentVariable(&quot;Path&quot;, [Environment]::GetEnvironmentVariable(&quot;Path&quot;, &quot;User&quot;) + &quot;;$dir&quot;, &quot;User&quot;)
+</code></pre>
+<p><strong>THIS COMMAND MUST BE RUN IN POWERSHELL (NOT CMD)</strong>
+Once that's done, restart your terminal and you're good to go.</p>
+<p>Now you can test your installation by running:</p>
+<pre><code class="language-bash">cp-cli
 </code></pre>
 <ul>
 <li>Test the output, does it match the following?</li>
@@ -126,17 +140,11 @@
   Exit
 </code></pre>
 <p>If it matches the output above, your installation of <a href="https://github.com/CompProgTools/CPCli">CP-Cli</a> is good to go!</p>
-<h1 id="setting-up-the-command">Setting Up The Command</h1>
-<p>If you dont need to use the <code>cp-cli</code> command specifically, you can do so by just using <code>python3 main.py</code>, but for those who need to use the command you can do so by running the following command.</p>
-<pre><code class="language-bash">pip install .
-</code></pre>
-<p>This command uses the <code>setup.py</code> file in order to setup the <code>cp-cli</code> command in order for usage.</p>
-<p>You can now use the <code>cp-cli</code> command followed by any of the subcommand listed.</p>
 <h2 id="first-time-setup">First Time Setup</h2>
 <p>Now that you've got <em>CP-Cli</em> installed, it's important to set it up properly in order to have a good experience!</p>
 <p>We will now setup the account(s) on <a href="https://leetcode.com">LeetCode</a> and <a href="https://codeforces.com">Codeforces</a></p>
 <p>In order to do the first time setup, run:</p>
-<pre><code>python3 main.py config
+<pre><code class="language-bash">cp-cli config
 </code></pre>
 <p>The <code>config</code> subcommand allows you to set your name, preferred language, code editor, Codeforces username, Leetcode username, and the template output folder.</p>
 <p>The only confusing one should be the tempalate output folder, so you can skip that and configure everything else to your liking.</p>
@@ -148,7 +156,7 @@
 <p>In order to setup a template, you must first understand what a template is. A template is basically pre-written code that is used to speed up the process during the contest. <a href="https://github.com/the-tourist/algo/blob/master/template/multithreaded.cpp">Here</a> is Tourists template for multithreaded programming.</p>
 <p>It's important to have a good templates that works for <em>you</em>. While using someone elses template is a good start, you write well with your own template.</p>
 <p>In order to create and use a template that CP-Cli can recognize, run the command:</p>
-<pre><code>cp-cli template --make name.ext --alias alias
+<pre><code class="language-bash">cp-cli template --make name.ext --alias alias
 </code></pre>
 <p><strong>BUT WAIT</strong></p>
 <p>In order to run this command you must first understand what each part means.</p>
@@ -163,7 +171,7 @@
 </ol>
 <p>Moving onto actually using the template.</p>
 <p>In order to use the template during a contest, here is the command:</p>
-<pre><code>cp-cli template --use alias --filename name.ext
+<pre><code class="language-bash">cp-cli template --use alias --filename name.ext
 </code></pre>
 <p>This command uses the same concepts as the last, but with a few changes in the flags used.</p>
 <ol>
@@ -176,28 +184,28 @@
 </ol>
 <p>This simple yet powerful command opens up a file at the location defined in the config command at <code>python3 main.py config</code>. This is what the <code>Set Template Output Folder</code> option was meant for. Setting a location in this command means that when you use the use and filename flag command, a file is created at the location defined under <code>Set Template Output Folder</code> with the selected template alias.</p>
 <p>You can also use the <code>--list</code> flag in order to list all your teamplates, their aliases, and their template file names. Here is the usage:</p>
-<pre><code>python3 main.py template --list
+<pre><code class="language-bash">cp-cli template --list
 </code></pre>
 <h2 id="syncing-accounts">Syncing Accounts</h2>
 <p>If you setup your account(s) using the config command, you can fetch their ratings using the command:</p>
-<pre><code class="language-bash">python3 main.py sync
+<pre><code class="language-bash">cp-cli sync
 </code></pre>
 <p>This will show your changes in rating (if any).</p>
 <h2 id="learning-how-to-test-code">Learning How To Test Code</h2>
 <p>If you would like to quick test your code by using custom testcases (stdin/stdout) you can do so by using the following command:</p>
-<pre><code class="language-bash">python3 main.py test filename.extension
+<pre><code class="language-bash">cp-cli test filename.extension
 </code></pre>
 <p>The format here is pretty simple to follow, but for the filename, make sure to put the full path or else <em>CP-Cli</em> wont reccognize it as a file in the source directory.</p>
 <p>Once you enter the command, you will be asked to ask the number of testcases, <strong>which must be an integer</strong>, after which you can enter the input for the testcase as well as the output.</p>
 <h2 id="leetcode-specific-commands">LeetCode Specific Commands</h2>
 <p>As of now, the only LeetCode specific command is the <code>daily</code> subcommand. Here is how to use it:</p>
-<pre><code class="language-bash">python3 main.py daily
+<pre><code class="language-bash">cp-cli daily
 </code></pre>
 <p>This will display todays daily question in a table format.</p>
 <h2 id="codeforces-specific-commands">Codeforces Specific Commands</h2>
 <p>Since the Codeforces API is much more diverse when compared to the third-party LeetCode API, you can expect much more commands to show up.</p>
 <p>In order to use any Codeforces command, here is the format:</p>
-<pre><code class="language-bash">python3 main.py cf --flag
+<pre><code class="language-bash">cp-cli cf --flag
 </code></pre>
 <p>As of now, CP-Cli offers two commands:</p>
 <ul>
@@ -258,5 +266,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-06-29 05:30:43.469164+00:00
+Build Date UTC : 2025-07-19 20:37:03.844467+00:00
 -->
