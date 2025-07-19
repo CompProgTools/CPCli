@@ -3,7 +3,7 @@ name: Build Executables
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*'  # e.g. v1.0.0
   workflow_dispatch:
 
 jobs:
@@ -29,9 +29,11 @@ jobs:
           pip install -r src/requirements.txt
           pip install pyinstaller
 
-      - name: Build executable
+      - name: Build executable (Linux/macOS)
+        if: runner.os != 'Windows'
+        shell: bash
         run: |
-          pyinstaller --onefile --name cp-cli src/main.py --paths src \
+          pyinstaller --onefile --noconfirm --name cp-cli src/main.py --paths src \
             --hidden-import src.subcommands.sync \
             --hidden-import src.subcommands.streak \
             --hidden-import src.subcommands.stats \
@@ -46,6 +48,11 @@ jobs:
             --hidden-import InquirerPy.prompts.input \
             --hidden-import InquirerPy.prompts.select \
             --collect-all InquirerPy
+
+      - name: Build executable (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          pyinstaller --onefile --noconfirm --name cp-cli src/main.py --paths src --hidden-import src.subcommands.sync --hidden-import src.subcommands.streak --hidden-import src.subcommands.stats --hidden-import src.subcommands.graph --hidden-import src.subcommands.test --hidden-import src.subcommands.config --hidden-import src.subcommands.template --hidden-import src.subcommands.daily --hidden-import src.subcommands.openkat --hidden-import src.subcommands.cf --hidden-import src.subcommands.update --hidden-import InquirerPy.prompts.input --hidden-import InquirerPy.prompts.select --collect-all InquirerPy
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
