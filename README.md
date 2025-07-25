@@ -3,7 +3,7 @@ Stands for Competitive Programmers Command Line Interface A CLI tool for competi
 
 ## Documentation
 
-You can view the documentation for the project [here](https://compprogtools.github.io/CPCli/)
+You can view the documentation for the project [here](https://compprogtools.github.io/CPCli/) (**This includes stuff related to installation and all the commands**)
 
 ## Features
 - Link accounts for LeetCode, and CodeForce for rating updates and etc
