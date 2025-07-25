@@ -19,23 +19,24 @@ This is where you can find quick documentation for the commands and how to use t
 
 As of now, here are the installation steps:
 
+**Keep in mind that Windows is the only supported OS for now (due to cross-system issues)**
+
 - Go to the [latest install](https://github.com/CompProgTools/CPCli/releases) of CP-Cli on the repository
 - Download the latest install for your specifc operating system
-- Copy the pathname of your install (.exe, .app, etc)
+- Copy the pathname of your install location (.exe, .app, etc)
 
 Now you will make the commands accessible by a global command.
 
-If you're on mac, run:
-```
-chmod +x <path of the install>
-sudo mv <path of the install>  /usr/local/bin/cp-cli
-```
+If you're on windows, try the following:
 
-If you're on windows, run:
-```
-$exePath = "<path to your install>"; $dir = Split-Path $exePath; [Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path", "User") + ";$dir", "User")
-```
-**THIS COMMAND MUST BE RUN IN POWERSHELL (NOT CMD)**
+- Copy the pathname of your installation
+- Press Windows + S
+- Type in `Edit the system environment variables`
+- Once in there, click on `Environment Variables`
+- Under `System Variables`, select Path and click Edit
+- Click **New** and paste the path that you copied
+- Save everything and exit
+
 Once that's done, restart your terminal and you're good to go.
 
 Now you can test your installation by running:

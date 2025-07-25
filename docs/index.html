@@ -112,20 +112,24 @@
 <h2 id="installation">Installation</h2>
 <p><strong>If all you want to do is update the codebase, run <code>python3 main.py update</code></strong></p>
 <p>As of now, here are the installation steps:</p>
+<p><strong>Keep in mind that Windows is the only supported OS for now (due to cross-system issues)</strong></p>
 <ul>
 <li>Go to the <a href="https://github.com/CompProgTools/CPCli/releases">latest install</a> of CP-Cli on the repository</li>
 <li>Download the latest install for your specifc operating system</li>
-<li>Copy the pathname of your install (.exe, .app, etc)</li>
+<li>Copy the pathname of your install location (.exe, .app, etc)</li>
 </ul>
 <p>Now you will make the commands accessible by a global command.</p>
-<p>If you're on mac, run:</p>
-<pre><code>sudo mv &lt;path of the install&gt; /usr/local/bin/  
-</code></pre>
-<p>If you're on windows, run:</p>
-<pre><code>$exePath = &quot;&lt;path to your install&gt;&quot;; $dir = Split-Path $exePath; [Environment]::SetEnvironmentVariable(&quot;Path&quot;, [Environment]::GetEnvironmentVariable(&quot;Path&quot;, &quot;User&quot;) + &quot;;$dir&quot;, &quot;User&quot;)
-</code></pre>
-<p><strong>THIS COMMAND MUST BE RUN IN POWERSHELL (NOT CMD)</strong>
-Once that's done, restart your terminal and you're good to go.</p>
+<p>If you're on windows, try the following:</p>
+<ul>
+<li>Copy the pathname of your installation</li>
+<li>Press Windows + S</li>
+<li>Type in <code>Edit the system environment variables</code></li>
+<li>Once in there, click on <code>Environment Variables</code></li>
+<li>Under <code>System Variables</code>, select Path and click Edit</li>
+<li>Click <strong>New</strong> and paste the path that you copied</li>
+<li>Save everything and exit</li>
+</ul>
+<p>Once that's done, restart your terminal and you're good to go.</p>
 <p>Now you can test your installation by running:</p>
 <pre><code class="language-bash">cp-cli
 </code></pre>
@@ -266,5 +270,5 @@ Once that's done, restart your terminal and you're good to go.</p>
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-07-19 20:37:03.844467+00:00
+Build Date UTC : 2025-07-25 23:38:13.653551+00:00
 -->
