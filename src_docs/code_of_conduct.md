@@ -19,4 +19,4 @@ Original text courtesy of the [Speak Up! project](http://web.archive.org/web/201
 
 ## Questions?
 
-If you have questions, please see [the FAQ](/faq). If that doesn't answer your questions, feel free to [contact us](mailto:ksukshavasi@gmail.com).
+If you have questions, please see [the FAQ](faq.md). If that doesn't answer your questions, feel free to [contact us](mailto:ksukshavasi@gmail.com).

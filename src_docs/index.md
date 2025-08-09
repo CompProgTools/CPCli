@@ -76,9 +76,11 @@ Once thats done you can go to `.cpcli/config.json` file and make sure everything
 
 **REMEMBER: All your config files and everything else will be stored in the `.cpcli` folder.**
 
-Once you've setup your profiles, run `python3 main.py sync`. This command fetches the rating for the account(s), if this command works successfully that means your accounts are good to go!. 
+Once you've setup your profiles, run `cp-cli sync`. This command fetches the rating for the account(s), if this command works successfully that means your accounts are good to go!. 
 
 You can move onto the next step.
+
+**KEEP IN MIND THAT THIS ONLY WORKS IF YOU HAVE A RATING ON EITHER SITE**
 
 ## Setting Up Templates
 
