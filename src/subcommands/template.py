@@ -1,5 +1,6 @@
 import os
 import sys
+import platform
 from pathlib import Path
 from config.handler import loadConfig, saveConfig
 from rich.console import Console
@@ -7,12 +8,32 @@ import subprocess
 
 console = Console()
 
+def getDefaultVSCodePath():
+    user_dir = Path.home()
+    vscode_path = user_dir / "AppData" / "Local" / "Programs" / "Microsoft VS Code" / "Code.exe"
+    return vscode_path if vscode_path.exists() else None
+
+def openInEditor(editor, filePath):
+    exePath = Path(editor).expanduser()
+
+    if platform.system() == "Windows" and editor.lower() in ["code", "code.exe"]:
+        detected_path = getDefaultVSCodePath()
+        if detected_path:
+            exePath = detected_path
+
+    if exePath.exists():
+        subprocess.Popen([str(exePath), str(filePath)])
+    else:
+        if platform.system() == "Windows":
+            subprocess.Popen(f'"{editor}" "{filePath}"', shell=True)
+        else:
+            subprocess.Popen([editor, str(filePath)])
+
 def run(args):
     config = loadConfig()
     templatesPath = Path.home() / ".cpcli" / "templates"
     templatesPath.mkdir(parents=True, exist_ok=True)
 
-    # Handle --use
     if "--use" in args and "--filename" in args:
         try:
             aliasIndex = args.index("--use") + 1
@@ -44,7 +65,7 @@ def run(args):
 
         editor = config.get("preferred_editor", "code")
         try:
-            subprocess.Popen([editor, str(destFile)])
+            openInEditor(editor, destFile)
         except FileNotFoundError:
             console.print(f"[red]Editor '{editor}' not found. Set it using `cp-cli config`[/red]")
         return
@@ -60,7 +81,6 @@ def run(args):
             console.print(f"[green]{alias}[/green] -> {filename}")
         return
 
-    # Handle --make
     elif "--make" in args and "--alias" in args:
         try:
             nameIndex = args.index("--make") + 1
@@ -86,11 +106,10 @@ def run(args):
 
         preferredEditor = config.get("preferred_editor", "code")
         try:
-            subprocess.Popen([preferredEditor, str(templateFilePath)])
+            openInEditor(preferredEditor, templateFilePath)
         except FileNotFoundError:
             console.print(f"[red]Editor '{preferredEditor}' not found. Set it using `cp-cli config`[/red]")
         return
 
-    # If neither
     else:
         console.print("[red]Usage:\n  cp-cli template --make name.ext --alias alias\n  cp-cli template --use alias --filename name.ext[/red]")
