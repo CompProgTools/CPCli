@@ -1,8 +1,6 @@
-# this is the basic dependabot setup for this project
-
 version: 2
 updates:
-  - package-ecosystem: "pip"
+  - package-ecosystem: "gomod"
     directory: "/"
     schedule:
       interval: "weekly"
