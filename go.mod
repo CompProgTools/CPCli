@@ -1,3 +1,3 @@
-module github.com/CompProgTools/cp-cli-go
+module github.com/CompProgTools/CPCli
 
 go 1.21
