@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/CompProgTools/src/internal/models"
+	"github.com/CompProgTools/CPCli/src/internal/models"
 )
 
 var (
