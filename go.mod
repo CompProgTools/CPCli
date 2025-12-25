@@ -1,4 +1,4 @@
-module github.com/CompProgTools/CPCli
+module github.com/CompProgTools/Kruskal
 
 go 1.24.0
 

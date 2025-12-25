@@ -8,8 +8,8 @@ import (
 	"sort"
 	"time"
 
-	"github.com/CompProgTools/CPCli/src/config"
-	"github.com/CompProgTools/CPCli/src/internal/models"
+	"github.com/CompProgTools/Kruskal/src/config"
+	"github.com/CompProgTools/Kruskal/src/internal/models"
 	"github.com/charmbracelet/lipgloss"
 )
 

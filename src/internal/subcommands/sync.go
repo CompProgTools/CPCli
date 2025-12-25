@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/CompProgTools/CPCli/src/config"
+	"github.com/CompProgTools/Kruskal/src/config"
 	"github.com/charmbracelet/lipgloss"
 )
 

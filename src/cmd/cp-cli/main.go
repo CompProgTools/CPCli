@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/CompProgTools/CPCli/src/config"
-	"github.com/CompProgTools/CPCli/src/internal/subcommands"
+	"github.com/CompProgTools/Kruskal/src/config"
+	"github.com/CompProgTools/Kruskal/src/internal/subcommands"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 	"github.com/erikgeiser/promptkit/selection"
@@ -32,7 +32,7 @@ var (
 func linkAccount() error {
 	platforms := []string{"Codeforces", "LeetCode", "Back"}
 
-	sp := selection.New("Select a platform to link: ", platforms)
+	sp := selection.New("select a platform to link: ", platforms)
 	sp.Filter = nil
 
 	platform, err := sp.RunPrompt()
@@ -45,7 +45,7 @@ func linkAccount() error {
 	}
 
 	for {
-		input := textinput.New(fmt.Sprintf("Enter your %s username: ", platform))
+		input := textinput.New(fmt.Sprintf("enter your %s username: ", platform))
 		input.Placeholder = "username"
 
 		handle, err := input.RunPrompt()
@@ -61,11 +61,11 @@ func linkAccount() error {
 		}
 
 		if err != nil {
-			fmt.Println(errorStyle.Render(fmt.Sprintf("Error connecting to %s: %v", platform, err)))
+			fmt.Println(errorStyle.Render(fmt.Sprintf("error connecting to %s: %v", platform, err)))
 		}
 
 		if !valid {
-			fmt.Println(errorStyle.Render(fmt.Sprintf("User not found on %s. Try again.", platform)))
+			fmt.Println(errorStyle.Render(fmt.Sprintf("user not found on %s. Try again.", platform)))
 			continue
 		}
 
@@ -87,11 +87,11 @@ func showMenu() error {
 	if !allLinked {
 		options = append(options, "Link Account")
 	}
-	options = append(options, "Coming soon...", "Exit")
+	options = append(options, "coming soon...", "exit")
 
-	fmt.Println(titleStyle.Render("Hi! This is CPCli, a command line interface for competitive programmers!"))
+	fmt.Println(titleStyle.Render("Hi! This is Kruskal, a command line interface for competitive programmers!"))
 
-	sp := selection.New("What would you like to do?", options)
+	sp := selection.New("what would you like to do?", options)
 	sp.Filter = nil
 
 	choice, err := sp.RunPrompt()
@@ -101,14 +101,14 @@ func showMenu() error {
 
 	switch choice {
 	case "View repository":
-		fmt.Println(successStyle.Render("Opening CPCli GitHub repository"))
-		_ = browser.OpenURL("https://github.com/CompProgTools/CPCli")
+		fmt.Println(successStyle.Render("opening Kruskal GitHub repository"))
+		_ = browser.OpenURL("https://github.com/CompProgTools/kruskal")
 	case "Link Account":
 		return linkAccount()
 	case "Coming soon...":
-		fmt.Println(yellowStyle.Render("Stay tuned!"))
+		fmt.Println(yellowStyle.Render("stay tuned!"))
 	case "Exit":
-		fmt.Println(errorStyle.Render("Goodbye!"))
+		fmt.Println(errorStyle.Render("goodbye!"))
 	}
 
 	return nil
@@ -130,7 +130,7 @@ func main() {
 		case "graph":
 			err = subcommands.RunGraph()
 		case "test":
-			err = subcommands.RunTest()
+			err = subcommands.RunTest(args)
 		case "config":
 			p := tea.NewProgram(subcommands.NewConfigModel())
 			if _, err := p.Run(); err != nil {
@@ -142,19 +142,17 @@ func main() {
 			err = subcommands.RunTemplate(args)
 		case "daily":
 			err = subcommands.RunDaily()
-		case "openKat":
-			err = subcommands.RunOpenKat(args)
 		case "cf":
 			err = subcommands.RunCF(args)
 		case "update":
 			err = subcommands.RunUpdate(args)
 		default:
-			fmt.Fprintf(os.Stderr, errorStyle.Render(fmt.Sprintf("Unknown command: %s\n", subcommand)))
+			fmt.Fprintf(os.Stderr, errorStyle.Render(fmt.Sprintf("unknown command: %s\n", subcommand)))
 			os.Exit(1)
 		}
 
 		if err != nil {
-			fmt.Fprintf(os.Stderr, errorStyle.Render(fmt.Sprintf("Error: %v\n", err)))
+			fmt.Fprintf(os.Stderr, errorStyle.Render(fmt.Sprintf("error: %v\n", err)))
 			os.Exit(1)
 		}
 	} else {
