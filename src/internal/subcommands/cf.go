@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/CompProgTools/CPCli/src/internal/models"
-	"github.com/CompProgTools/CPCli/src/config"
+	"github.com/CompProgTools/Kruskal/src/internal/models"
+	"github.com/CompProgTools/Kruskal/src/config"
 	"github.com/charmbracelet/lipgloss"
 )
 
