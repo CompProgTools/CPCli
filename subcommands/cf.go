@@ -13,11 +13,6 @@ import (
 
 	"github.com/CompProgTools/Kruskal/internal/models"
 	"github.com/CompProgTools/Kruskal/config"
-	"github.com/charmbracelet/lipgloss"
-)
-
-var (
-	tableHeaderStyle = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("14"))
 )
 
 func contains(slice []string, item string) bool {

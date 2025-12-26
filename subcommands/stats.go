@@ -8,18 +8,6 @@ import (
 
 	"github.com/CompProgTools/Kruskal/config"
 	"github.com/CompProgTools/Kruskal/internal/models"
-	"github.com/charmbracelet/lipgloss"
-)
-
-var (
-	ruleStyle = lipgloss.NewStyle().
-		Bold(true).
-		Foreground(lipgloss.Color("14"))
-	
-	boldStyle = lipgloss.NewStyle().Bold(true)
-
-	errorStyle = lipgloss.NewStyle().
-		Foreground(lipgloss.Color("9"))
 )
 
 func RunStats() error {

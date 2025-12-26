@@ -10,14 +10,6 @@ import (
 
 	"github.com/CompProgTools/Kruskal/internal/models"
 	"github.com/CompProgTools/Kruskal/config"
-	"github.com/charmbracelet/lipgloss"
-)
-
-var (
-	templateTitleStyle = lipgloss.NewStyle().
-		Bold(true).
-		Foreground(lipgloss.Color("12")).
-		Underline(true)
 )
 
 func RunTemplate(args []string) error {

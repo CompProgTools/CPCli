@@ -10,12 +10,6 @@ import (
 
 	"github.com/CompProgTools/Kruskal/config"
 	"github.com/CompProgTools/Kruskal/internal/models"
-	"github.com/charmbracelet/lipgloss"
-)
-
-var (
-	cyanBold = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("14"))
-	magentaBold = lipgloss.NewStyle().Bold(true).Foreground(lipgloss.Color("13"))
 )
 
 func RunStreak() error {

@@ -11,13 +11,7 @@ import (
 
 	"github.com/CompProgTools/Kruskal/config"
 	"github.com/CompProgTools/Kruskal/internal/models"
-	"github.com/charmbracelet/lipgloss"
 	"github.com/pkg/browser"
-)
-
-var (
-	infoStyle = lipgloss.NewStyle().
-		Foreground(lipgloss.Color("12"))
 )
 
 type DataPoint struct {

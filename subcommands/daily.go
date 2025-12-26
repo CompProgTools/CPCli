@@ -11,17 +11,6 @@ import (
 	"github.com/charmbracelet/lipgloss"
 )
 
-var (
-	panelStyle = lipgloss.NewStyle().
-		Border(lipgloss.RoundedBorder()).
-		BorderForeground(lipgloss.Color("14")).
-		Padding(1, 2)
-
-	titleDaily = lipgloss.NewStyle().
-		Bold(true).
-		Foreground(lipgloss.Color("14"))
-)
-
 func RunDaily() error {
 	url := "https://leetcode-api-pied.vercel.app/daily"
 

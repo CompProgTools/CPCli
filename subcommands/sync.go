@@ -8,13 +8,6 @@ import (
 	"time"
 
 	"github.com/CompProgTools/Kruskal/config"
-	"github.com/charmbracelet/lipgloss"
-)
-
-var (
-	greenStyle = lipgloss.NewStyle().Foreground(lipgloss.Color("10"))
-	cyanStyle = lipgloss.NewStyle().Foreground(lipgloss.Color("14"))
-	yellowStyle2 = lipgloss.NewStyle().Foreground(lipgloss.Color("11"))
 )
 
 func ValidateCodeforcesUser(handle string) (bool, error) {

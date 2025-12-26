@@ -11,20 +11,6 @@ import (
 	"github.com/erikgeiser/promptkit/selection"
 	"github.com/erikgeiser/promptkit/textinput"
 	"golang.org/x/term"
-	"github.com/charmbracelet/lipgloss"
-)
-
-var (
-	configItemStyle = lipgloss.NewStyle().
-		Foreground(lipgloss.Color("14"))
-
-configValueStyle = lipgloss.NewStyle().
-		Foreground(lipgloss.Color("10"))
-
-configTitleStyle = lipgloss.NewStyle().
-		Bold(true).
-		Foreground(lipgloss.Color("12")).
-		MarginBottom(1)
 )
 
 type ConfigModel struct {

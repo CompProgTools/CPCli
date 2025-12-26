@@ -10,26 +10,6 @@ import (
 	"strconv"
 	"strings"
 	"time"
-
-	"github.com/charmbracelet/lipgloss"
-)
-
-var (
-	passStyle = lipgloss.NewStyle().
-		Foreground(lipgloss.Color("10")).
-		Bold(true)
-
-	failStyle = lipgloss.NewStyle().
-		Foreground(lipgloss.Color("9")).
-		Bold(true)
-
-	testHeaderStyle = lipgloss.NewStyle().
-		Foreground(lipgloss.Color("14")).
-		Bold(true).
-		Underline(true)
-
-	testInfoStyle = lipgloss.NewStyle().
-		Foreground(lipgloss.Color("12"))
 )
 
 type TestCase struct {
