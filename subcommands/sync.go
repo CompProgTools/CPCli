@@ -63,11 +63,14 @@ func ValidateLeetCodeUser(handle string) (bool, error) {
 func fetchRating(platform string, handle string) (int, error) {
 	var url string
 	
-	if platform == "leetcode" {
-		url = fmt.Sprintf("https://leetcode-api-pied.vercel.app/user/%s/contests", handle)
-	} else if platform == "codeforces" {
+	switch {
+	case platform == "leetcode" :
+		url = fmt.Sprintf("https://leetcode-api-pied.vercel.app/user/%s/contests", handle) // TODO: fix doesn't display the data
+
+	case platform == "codeforces":
 		url = fmt.Sprintf("https://codeforces.com/api/user.rating?handle=%s", handle)
-	} else {
+
+	default:
 		return 0, fmt.Errorf("unknown platform: %s", platform)
 	}
 
@@ -92,13 +95,15 @@ func fetchRating(platform string, handle string) (int, error) {
 }
 
 func extractRating(platform string, data map[string]interface{}) (int, error) {
-	if platform == "leetcode" {
+	switch {
+	case platform == "leetcode":
 		if userRank, ok := data["userContestRating"].(map[string]interface{}); ok {
 			if rating, ok := userRank["rating"].(float64); ok {
 				return int(rating), nil
 			}
 		}
-	} else if platform == "codeforces" {
+
+	case platform == "codeforces": 
 		if result, ok := data["result"].([]interface{}); ok && len(result) > 0 {
 			lastContest := result[len(result) - 1].(map[string]interface{})
 			if rating, ok := lastContest["newRating"].(float64); ok {
