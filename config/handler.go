@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/CompProgTools/Kruskal/src/internal/models"
+	"github.com/CompProgTools/Kruskal/internal/models"
 )
 
 var (
