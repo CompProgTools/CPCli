@@ -191,12 +191,12 @@ func collectTestCases() ([]TestCase, error) {
 func prepareExecution(filename string, ext string) ([]string, func(), error) {
 	var runCmd []string
 	var cleanup func()
-	exeName := "text_executable"
+	exeName := "test_executable"
 
 	switch ext {
 	case ".cpp", ".cc":
 		fmt.Println(testInfoStyle.Render("compiling c++ code..."))
-		cmd := exec.Command("g++", "-std=c++17", "-02", filename, "-o", exeName)
+		cmd := exec.Command("g++", "-std=c++17", "-O2", filename, "-o", exeName)
 		var stderr bytes.Buffer
 		cmd.Stderr = &stderr
 
@@ -212,7 +212,7 @@ func prepareExecution(filename string, ext string) ([]string, func(), error) {
 
 	case ".c":
 		fmt.Println(testInfoStyle.Render("compiling c code..."))
-		cmd := exec.Command("gcc", "-std=c11", "-02", filename, "-o", exeName)
+		cmd := exec.Command("gcc", "-std=c11", "-O2", filename, "-o", exeName)
 		var stderr bytes.Buffer
 		cmd.Stderr = &stderr
 
