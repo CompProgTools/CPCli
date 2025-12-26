@@ -47,7 +47,7 @@ func RunDaily() error {
 	frontendID := data.Question.QuestionFrontentID
 	date := data.Date
 	difficulty := data.Question.Difficulty
-	link := "https://leetcode/com" + data.Link
+	link := "https://leetcode.com" + data.Link
 
 	fmt.Println(panelStyle.Render(titleDaily.Render(fmt.Sprintf("LeetCode Daily Challenge - %s", date))))
 	fmt.Println()
