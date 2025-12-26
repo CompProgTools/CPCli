@@ -52,7 +52,7 @@ func RunCF(args []string) error {
 		return logSolved(args[idx + 1])
 	}
 
-	fmt.Println(errorStyle.Render("nnknown flag. use --list or --solved"))
+	fmt.Println(errorStyle.Render("unknown flag. use --list or --solved"))
 	return nil
 }
 
@@ -98,7 +98,7 @@ func listContests() error {
 		if contest.Phase != "BEFORE" {
 			break
 		}
-		fmt.Printf("%-10d %-50s %-15d\n", contest.ID, os.Truncate(contest.Name, 48), -contest.RelativeTimeSeconds)
+		fmt.Printf("%-10d %-50s %-15d\n", contest.ID, truncate(contest.Name, 48), -contest.RelativeTimeSeconds)
 	}
 	
 	return nil
