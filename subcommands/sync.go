@@ -64,7 +64,7 @@ func fetchRating(platform string, handle string) (int, error) {
 	var url string
 	
 	if platform == "leetcode" {
-		url = fmt.Sprintf("https://leetcode-api-pied.vercel.app/user/%s/contest", handle)
+		url = fmt.Sprintf("https://leetcode-api-pied.vercel.app/user/%s/contests", handle)
 	} else if platform == "codeforces" {
 		url = fmt.Sprintf("https://codeforces.com/api/user.rating?handle=%s", handle)
 	} else {

@@ -6,7 +6,6 @@ import (
 
 	"github.com/CompProgTools/Kruskal/config"
 	"github.com/CompProgTools/Kruskal/subcommands"
-	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 	"github.com/erikgeiser/promptkit/selection"
 	"github.com/erikgeiser/promptkit/textinput"
@@ -132,12 +131,7 @@ func main() {
 		case "test":
 			err = subcommands.RunTest(args)
 		case "config":
-			p := tea.NewProgram(subcommands.NewConfigModel())
-			if _, err := p.Run(); err != nil {
-				fmt.Fprintf(os.Stderr, "Error: %v\n", err)
-				os.Exit(1)
-			}
-			return
+			err = subcommands.RunConfigInteractive()
 		case "template":
 			err = subcommands.RunTemplate(args)
 		case "daily":

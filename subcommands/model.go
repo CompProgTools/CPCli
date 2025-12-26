@@ -7,51 +7,13 @@ import (
 
 	"github.com/CompProgTools/Kruskal/config"
 	"github.com/CompProgTools/Kruskal/internal/models"
-	tea "github.com/charmbracelet/bubbletea"
 	"github.com/erikgeiser/promptkit/selection"
 	"github.com/erikgeiser/promptkit/textinput"
 	"golang.org/x/term"
 )
 
-type ConfigModel struct {
-	choices []string
-	cursor  int
-	done    bool
-}
-
-func NewConfigModel() ConfigModel {
-	return ConfigModel{
-		choices: []string{
-			"set name",
-			"set preferred language",
-			"set preferred code editor",
-			"set codeforces username",
-			"set leetcode username",
-			"set template output folder",
-			"set openkattis credentials",
-			"view current configuration",
-			"exit",
-		},
-	}
-}
-
-func (m ConfigModel) Init() tea.Cmd {
-	return runConfigMenu
-}
-
-func (m ConfigModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
-	return m, tea.Quit
-}
-
-func (m ConfigModel) View() string {
-	return "configuration menu running...\n"
-}
-
-func runConfigMenu() tea.Msg {
-	if err := RunConfigInteractive(); err != nil {
-		return err
-	}
-	return nil
+func RunConfig() error {
+	return RunConfigInteractive()
 }
 
 func RunConfigInteractive() error {
