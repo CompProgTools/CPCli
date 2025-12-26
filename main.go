@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/CompProgTools/Kruskal/src/config"
-	"github.com/CompProgTools/Kruskal/src/internal/subcommands"
+	"github.com/CompProgTools/Kruskal/config"
+	"github.com/CompProgTools/Kruskal/subcommands"
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 	"github.com/erikgeiser/promptkit/selection"
@@ -15,18 +15,18 @@ import (
 
 var (
 	titleStyle = lipgloss.NewStyle().
-		Bold(true).
-		Foreground(lipgloss.Color("12")).
-		MarginBottom(1)
+			Bold(true).
+			Foreground(lipgloss.Color("12")).
+			MarginBottom(1)
 
 	successStyle = lipgloss.NewStyle().
-		Foreground(lipgloss.Color("10"))
+			Foreground(lipgloss.Color("10"))
 
 	errorStyle = lipgloss.NewStyle().
-		Foreground(lipgloss.Color("9"))
+			Foreground(lipgloss.Color("9"))
 
 	yellowStyle = lipgloss.NewStyle().
-		Foreground(lipgloss.Color("11"))
+			Foreground(lipgloss.Color("11"))
 )
 
 func linkAccount() error {
@@ -115,11 +115,11 @@ func showMenu() error {
 }
 
 func main() {
-	if len(os.Args > 1) {
+	if len(os.Args) > 1 {
 		subcommand := os.Args[1]
 		args := os.Args[2:]
 
-		var err error 
+		var err error
 		switch subcommand {
 		case "sync":
 			err = subcommands.RunSync()
@@ -147,16 +147,16 @@ func main() {
 		case "update":
 			err = subcommands.RunUpdate(args)
 		default:
-			fmt.Fprintf(os.Stderr, errorStyle.Render(fmt.Sprintf("unknown command: %s\n", subcommand)))
+			fmt.Fprint(os.Stderr, errorStyle.Render(fmt.Sprintf("unknown command: %s\n", subcommand)))
 			os.Exit(1)
 		}
 
 		if err != nil {
-			fmt.Fprintf(os.Stderr, errorStyle.Render(fmt.Sprintf("error: %v\n", err)))
+			fmt.Fprint(os.Stderr, errorStyle.Render(fmt.Sprintf("error: %v\n", err)))
 			os.Exit(1)
 		}
 	} else {
-		if err := showMenu; err != nil {
+		if err := showMenu(); err != nil {
 			fmt.Fprintf(os.Stderr, "Error %v\n", err)
 			os.Exit(1)
 		}

@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/CompProgTools/Kruskal/src/internal/models"
+	"github.com/CompProgTools/Kruskal/internal/models"
 	"github.com/charmbracelet/lipgloss"
 )
 
