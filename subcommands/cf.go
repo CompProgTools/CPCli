@@ -102,7 +102,7 @@ func listContests() error {
 func logSolved(contestAndProblem string) error {
 	parts := strings.Split(contestAndProblem, "/")
 	if len(parts) != 2 {
-		fmt.Println(errorStyle.Render("usage: cpcli cf --solved <contestId>/<problemLetter>"))
+		fmt.Println(errorStyle.Render("usage: kruskal cf --solved <contestId>/<problemLetter>"))
 		return nil
 	}
 

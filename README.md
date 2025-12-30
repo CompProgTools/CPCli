@@ -1,9 +1,9 @@
-# Welcome to the CPCli project repository
+# Welcome to the Kruskal project repository
 Stands for Competitive Programmers Command Line Interface A CLI tool for competitive programmers that allows you to track statistic and improve overall workflow during competitions
 
 ## Documentation
 
-You can view the documentation for the project [here](https://compprogtools.github.io/CPCli/) (**This includes stuff related to installation and all the commands**)
+You can view the documentation for the project [here](https://compprogtools.github.io/kruskal/) (**This includes stuff related to installation and all the commands**)
 
 ## Features
 - Link accounts for LeetCode, and CodeForce for rating updates and etc
@@ -25,7 +25,7 @@ You can view the documentation for the project [here](https://compprogtools.gith
 
 Contributions are always welcome!
 
-See [CONTRIBUTING.md](https://github.com/CompProgTools/CPCli/blob/main/CONTRIBUTE.md) for ways to get started.
+See [CONTRIBUTING.md](https://github.com/CompProgTools/kruskal/blob/main/CONTRIBUTE.md) for ways to get started.
 
 Please adhere to this project's `code of conduct`.
 

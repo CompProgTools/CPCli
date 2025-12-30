@@ -1,10 +1,10 @@
-# How to contribute to CP-Cli
+# How to contribute to Kruskal
 
 In order to contribute to this project, you must really understand what competitive programmers want from a tool like this. Speak to other competitive programmers, hand them this! See what they think about this, and get feedback. Without understanding your userbase, it will be much harder to make the product *actually* good.
 
 ## Am I open to contributions?
 
-Yes! CP-Cli is fully open source under the [MIT License](https://opensource.org/license/mit) and is open to any contributions you would like to make! This project is solely for the ease of competitive programmers
+Yes! Kruskal is fully open source under the [MIT License](https://opensource.org/license/mit) and is open to any contributions you would like to make! This project is solely for the ease of competitive programmers
 
 ## How can I contribute?
 
@@ -30,4 +30,4 @@ This is the criteria of which I approve or reject your pull requests.
 
 ## How can I be more involved?
 
-If you would like to be more involved in the development on *CP-Cli* then contribute a lot! Thats really all I have to say, oh and also show that you actually care about the competitive programming community, and I might add you as a contributer!
+If you would like to be more involved in the development on *Kruskal* then contribute a lot! Thats really all I have to say, oh and also show that you actually care about the competitive programming community, and I might add you as a contributer!

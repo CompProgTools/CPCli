@@ -27,12 +27,12 @@ func RunUpdate(args []string) error {
 	output, err := cmd.CombinedOutput()
 
 	if err != nil {
-		fmt.Println(errorStyle.Render("failed to update CPCli"))
+		fmt.Println(errorStyle.Render("failed to update Kruskal"))
 		fmt.Println(string(output))
 		return err
 	}
 
-	fmt.Println(greenStyle.Render("CPCli successfully updated!"))
+	fmt.Println(greenStyle.Render("Kruskal successfully updated!"))
 	fmt.Println(string(output))
 
 	return nil

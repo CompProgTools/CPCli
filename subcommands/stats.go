@@ -97,7 +97,7 @@ func RunStats() error {
 	}
 
 	fmt.Println(ruleStyle.Render("═══════════════════════════════════════"))
-	fmt.Println(ruleStyle.Render("           CPCli Stats"))
+	fmt.Println(ruleStyle.Render("           Kruskal Stats"))
 	fmt.Println(ruleStyle.Render("═══════════════════════════════════════"))
 	fmt.Println()
 

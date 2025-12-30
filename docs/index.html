@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
       <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>CP-Cli Documentation</title>
+    <title>Kruskal Documentation</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -30,7 +30,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="." class="icon icon-home"> CP-Cli Documentation
+          <a href="." class="icon icon-home"> Kruskal Documentation
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -45,6 +45,10 @@
     <li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#mac-os-installation">Mac OS Installation</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#first-time-setup">First Time Setup</a>
     </li>
@@ -80,7 +84,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href=".">CP-Cli Documentation</a>
+          <a href=".">Kruskal Documentation</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -96,7 +100,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="welcome-to-the-cp-cli-documentation-site">Welcome to the CP-Cli Documentation Site</h1>
+                <h1 id="welcome-to-the-kruskal-documentation-site">Welcome to the Kruskal Documentation Site</h1>
 <p>This is where you can find quick documentation for the commands and how to use them.</p>
 <h2 id="table-of-contents">Table of Contents</h2>
 <ul>
@@ -110,62 +114,53 @@
 <li><a href="#statistics-commands">Statistics</a></li>
 </ul>
 <h2 id="installation">Installation</h2>
-<p><strong>If all you want to do is update the codebase, run <code>python3 main.py update</code></strong></p>
-<p>As of now, here are the installation steps:</p>
-<p><strong>Keep in mind that Windows is the only supported OS for now (due to cross-system issues)</strong></p>
-<ul>
-<li>Go to the <a href="https://github.com/CompProgTools/CPCli/releases">latest install</a> of CP-Cli on the repository</li>
-<li>Download the latest install for your specifc operating system</li>
-<li>Copy the pathname of your install location (.exe, .app, etc)</li>
-</ul>
-<p>Now you will make the commands accessible by a global command.</p>
-<p>If you're on windows, try the following:</p>
-<ul>
-<li>Copy the pathname of your installation</li>
-<li>Press Windows + S</li>
-<li>Type in <code>Edit the system environment variables</code></li>
-<li>Once in there, click on <code>Environment Variables</code></li>
-<li>Under <code>System Variables</code>, select Path and click Edit</li>
-<li>Click <strong>New</strong> and paste the path that you copied</li>
-<li>Save everything and exit</li>
-</ul>
-<p>Once that's done, restart your terminal and you're good to go.</p>
-<p>Now you can test your installation by running:</p>
-<pre><code class="language-bash">cp-cli
+<p>To install Kruskal, go to the <a href="https://github.com/CompProgTools/kruskal/releases">releases</a> tab on the <a href="https://github.com/CompProgTools/kruskal">Github Repository</a> and install whichever fits your operating system!</p>
+<p><strong>Note: Kruskal currently has support for Mac Silicon and Windows 64-Bit, there are more supported versions coming soon.</strong></p>
+<h3 id="mac-os-installation">Mac OS Installation</h3>
+<p>Setting up the application for MacOS is quite easy. Once you have the latest release from the <a href="https://github.com/CompProgTools/kruskal/releases">releases tab</a>, make sure you copy the <em>full path</em> of the installed file.</p>
+<p>Go to the terminal and type:</p>
+<pre><code>chmod +x &lt;path of the install&gt;
 </code></pre>
+<p>Once that is done <em>and there are no errors</em>, the app should be compiled for your computer. To check, go to the folder in which the file is located and type <code>ls</code>. If the app name appears then you are good to go!</p>
+<p>You may now type in </p>
+<pre><code>./freeport
+</code></pre>
+<p>And the application should open up.</p>
+<p>Conga rats! You just installed Kruskal :D</p>
 <ul>
 <li>Test the output, does it match the following?</li>
 </ul>
-<pre><code class="language-bash">Hi! This is CPCli, a command line tool for competitive programmers
+<pre><code class="language-bash">Hi! This is Kruskal, a command line tool for competitive programmers
 
 ? What would you like to do? 
 &gt; View Repository
   Coming soon...
   Exit
 </code></pre>
-<p>If it matches the output above, your installation of <a href="https://github.com/CompProgTools/CPCli">CP-Cli</a> is good to go!</p>
+<p>If it matches the output above, your installation of <a href="https://github.com/CompProgTools/kruskal">kruskal</a> is good to go!</p>
 <h2 id="first-time-setup">First Time Setup</h2>
-<p>Now that you've got <em>CP-Cli</em> installed, it's important to set it up properly in order to have a good experience!</p>
+<p>Now that you've got <em>Kruskal</em> installed, it's important to set it up properly in order to have a good experience!</p>
 <p>We will now setup the account(s) on <a href="https://leetcode.com">LeetCode</a> and <a href="https://codeforces.com">Codeforces</a></p>
 <p>In order to do the first time setup, run:</p>
-<pre><code class="language-bash">cp-cli config
+<pre><code class="language-bash">kruskal config
 </code></pre>
+<p>[Note for reviewer, you may use <code>kashsuks</code> as the username for both codeforces and leetcode if you do not have an account]</p>
 <p>The <code>config</code> subcommand allows you to set your name, preferred language, code editor, Codeforces username, Leetcode username, and the template output folder.</p>
 <p>The only confusing one should be the tempalate output folder, so you can skip that and configure everything else to your liking.</p>
 <p>Once thats done you can go to <code>.cpcli/config.json</code> file and make sure everything is right. </p>
 <p><strong>REMEMBER: All your config files and everything else will be stored in the <code>.cpcli</code> folder.</strong></p>
-<p>Once you've setup your profiles, run <code>cp-cli sync</code>. This command fetches the rating for the account(s), if this command works successfully that means your accounts are good to go!. </p>
+<p>Once you've setup your profiles, run <code>kruskal sync</code>. This command fetches the rating for the account(s), if this command works successfully that means your accounts are good to go!. </p>
 <p>You can move onto the next step.</p>
 <p><strong>KEEP IN MIND THAT THIS ONLY WORKS IF YOU HAVE A RATING ON EITHER SITE</strong></p>
 <h2 id="setting-up-templates">Setting Up Templates</h2>
 <p>In order to setup a template, you must first understand what a template is. A template is basically pre-written code that is used to speed up the process during the contest. <a href="https://github.com/the-tourist/algo/blob/master/template/multithreaded.cpp">Here</a> is Tourists template for multithreaded programming.</p>
 <p>It's important to have a good templates that works for <em>you</em>. While using someone elses template is a good start, you write well with your own template.</p>
-<p>In order to create and use a template that CP-Cli can recognize, run the command:</p>
-<pre><code class="language-bash">cp-cli template --make name.ext --alias alias
+<p>In order to create and use a template that Kruskal can recognize, run the command:</p>
+<pre><code class="language-bash">kruskal template --make name.ext --alias alias
 </code></pre>
 <p><strong>BUT WAIT</strong></p>
 <p>In order to run this command you must first understand what each part means.</p>
-<p>The <code>template</code> subcommand is a collection of flags under the location <code>subcommands/template.py</code>. It contains 4 main commands:</p>
+<p>The <code>template</code> subcommand is a collection of flags under the location <code>subcommands/template.go</code>. It contains 4 main commands:</p>
 <ol>
 <li>
 <p><code>--make</code>: This flag allows you to create a template file under the location <code>.cpcli/templates</code> following the <code>--make</code> flag, you must put the filename of your extension in the format <code>filename.extension</code>. This flag must be followed up by the <code>--alias</code> flag.</p>
@@ -176,7 +171,7 @@
 </ol>
 <p>Moving onto actually using the template.</p>
 <p>In order to use the template during a contest, here is the command:</p>
-<pre><code class="language-bash">cp-cli template --use alias --filename name.ext
+<pre><code class="language-bash">kruskal template --use alias --filename name.ext
 </code></pre>
 <p>This command uses the same concepts as the last, but with a few changes in the flags used.</p>
 <ol>
@@ -187,32 +182,32 @@
 <p><code>--filename</code>: The filename flag is used to create a filename with the format <code>filename.extension</code>.</p>
 </li>
 </ol>
-<p>This simple yet powerful command opens up a file at the location defined in the config command at <code>python3 main.py config</code>. This is what the <code>Set Template Output Folder</code> option was meant for. Setting a location in this command means that when you use the use and filename flag command, a file is created at the location defined under <code>Set Template Output Folder</code> with the selected template alias.</p>
+<p>This simple yet powerful command opens up a file at the location defined in the config command at <code>kruskal config</code>. This is what the <code>Set Template Output Folder</code> option was meant for. Setting a location in this command means that when you use the use and filename flag command, a file is created at the location defined under <code>Set Template Output Folder</code> with the selected template alias.</p>
 <p>You can also use the <code>--list</code> flag in order to list all your teamplates, their aliases, and their template file names. Here is the usage:</p>
-<pre><code class="language-bash">cp-cli template --list
+<pre><code class="language-bash">kruskal template --list
 </code></pre>
 <h2 id="syncing-accounts">Syncing Accounts</h2>
 <p>If you setup your account(s) using the config command, you can fetch their ratings using the command:</p>
-<pre><code class="language-bash">cp-cli sync
+<pre><code class="language-bash">kruskal sync
 </code></pre>
 <p>This will show your changes in rating (if any).</p>
 <h2 id="learning-how-to-test-code">Learning How To Test Code</h2>
 <p>If you would like to quick test your code by using custom testcases (stdin/stdout) you can do so by using the following command:</p>
-<pre><code class="language-bash">cp-cli test filename.extension
+<pre><code class="language-bash">kruskal test filename.extension
 </code></pre>
-<p>The format here is pretty simple to follow, but for the filename, make sure to put the full path or else <em>CP-Cli</em> wont reccognize it as a file in the source directory.</p>
+<p>The format here is pretty simple to follow, but for the filename, make sure to put the full path or else <em>Kruskal</em> wont reccognize it as a file in the source directory.</p>
 <p>Once you enter the command, you will be asked to ask the number of testcases, <strong>which must be an integer</strong>, after which you can enter the input for the testcase as well as the output.</p>
 <h2 id="leetcode-specific-commands">LeetCode Specific Commands</h2>
 <p>As of now, the only LeetCode specific command is the <code>daily</code> subcommand. Here is how to use it:</p>
-<pre><code class="language-bash">cp-cli daily
+<pre><code class="language-bash">kruskal daily
 </code></pre>
 <p>This will display todays daily question in a table format.</p>
 <h2 id="codeforces-specific-commands">Codeforces Specific Commands</h2>
 <p>Since the Codeforces API is much more diverse when compared to the third-party LeetCode API, you can expect much more commands to show up.</p>
 <p>In order to use any Codeforces command, here is the format:</p>
-<pre><code class="language-bash">cp-cli cf --flag
+<pre><code class="language-bash">kruskal cf --flag
 </code></pre>
-<p>As of now, CP-Cli offers two commands:</p>
+<p>As of now, Kruskal offers two commands:</p>
 <ul>
 <li><code>--list</code>: This flag allows you to list upcoming contests in a nice table like format.</li>
 <li><code>--solved &lt;contestId&gt;/&lt;index&gt;</code>: This flag allows you to log a problem you've solved. The format is contestId/Index. Every problem on codeforces comes from a contest, so the id of the contest <strong>not the contest number</strong> and the index is which problem it is in a letter format.</li>
@@ -271,5 +266,5 @@
 
 <!--
 MkDocs version : 1.6.1
-Build Date UTC : 2025-08-09 03:20:08.662173+00:00
+Build Date UTC : 2025-12-30 04:04:33.391776+00:00
 -->

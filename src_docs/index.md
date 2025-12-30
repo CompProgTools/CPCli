@@ -1,4 +1,4 @@
-# Welcome to the CP-Cli Documentation Site
+# Welcome to the Kruskal Documentation Site
 
 This is where you can find quick documentation for the commands and how to use them.
 
@@ -15,39 +15,32 @@ This is where you can find quick documentation for the commands and how to use t
 
 ## Installation
 
-**If all you want to do is update the codebase, run `python3 main.py update`**
+To install Kruskal, go to the [releases](https://github.com/CompProgTools/kruskal/releases) tab on the [Github Repository](https://github.com/CompProgTools/kruskal) and install whichever fits your operating system!
 
-As of now, here are the installation steps:
+**Note: Kruskal currently has support for Mac Silicon and Windows 64-Bit, there are more supported versions coming soon.**
 
-**Keep in mind that Windows is the only supported OS for now (due to cross-system issues)**
+### Mac OS Installation
 
-- Go to the [latest install](https://github.com/CompProgTools/CPCli/releases) of CP-Cli on the repository
-- Download the latest install for your specifc operating system
-- Copy the pathname of your install location (.exe, .app, etc)
+Setting up the application for MacOS is quite easy. Once you have the latest release from the [releases tab](https://github.com/CompProgTools/kruskal/releases), make sure you copy the *full path* of the installed file.
 
-Now you will make the commands accessible by a global command.
-
-If you're on windows, try the following:
-
-- Copy the pathname of your installation
-- Press Windows + S
-- Type in `Edit the system environment variables`
-- Once in there, click on `Environment Variables`
-- Under `System Variables`, select Path and click Edit
-- Click **New** and paste the path that you copied
-- Save everything and exit
-
-Once that's done, restart your terminal and you're good to go.
-
-Now you can test your installation by running:
-
-```bash
-cp-cli
+Go to the terminal and type:
 ```
+chmod +x <path of the install>
+```
+
+Once that is done *and there are no errors*, the app should be compiled for your computer. To check, go to the folder in which the file is located and type `ls`. If the app name appears then you are good to go!
+
+You may now type in 
+```
+./freeport
+```
+And the application should open up.
+
+Conga rats! You just installed Kruskal :D
 
 - Test the output, does it match the following?
 ```bash
-Hi! This is CPCli, a command line tool for competitive programmers
+Hi! This is Kruskal, a command line tool for competitive programmers
 
 ? What would you like to do? 
 > View Repository
@@ -55,18 +48,20 @@ Hi! This is CPCli, a command line tool for competitive programmers
   Exit
 ```
 
-If it matches the output above, your installation of [CP-Cli](https://github.com/CompProgTools/CPCli) is good to go!
+If it matches the output above, your installation of [kruskal](https://github.com/CompProgTools/kruskal) is good to go!
 
 ## First Time Setup
 
-Now that you've got *CP-Cli* installed, it's important to set it up properly in order to have a good experience!
+Now that you've got *Kruskal* installed, it's important to set it up properly in order to have a good experience!
 
 We will now setup the account(s) on [LeetCode](https://leetcode.com) and [Codeforces](https://codeforces.com)
 
 In order to do the first time setup, run:
 ```bash
-cp-cli config
+kruskal config
 ```
+
+[Note for reviewer, you may use `kashsuks` as the username for both codeforces and leetcode if you do not have an account]
 
 The `config` subcommand allows you to set your name, preferred language, code editor, Codeforces username, Leetcode username, and the template output folder.
 
@@ -76,7 +71,7 @@ Once thats done you can go to `.cpcli/config.json` file and make sure everything
 
 **REMEMBER: All your config files and everything else will be stored in the `.cpcli` folder.**
 
-Once you've setup your profiles, run `cp-cli sync`. This command fetches the rating for the account(s), if this command works successfully that means your accounts are good to go!. 
+Once you've setup your profiles, run `kruskal sync`. This command fetches the rating for the account(s), if this command works successfully that means your accounts are good to go!. 
 
 You can move onto the next step.
 
@@ -88,15 +83,15 @@ In order to setup a template, you must first understand what a template is. A te
 
 It's important to have a good templates that works for *you*. While using someone elses template is a good start, you write well with your own template.
 
-In order to create and use a template that CP-Cli can recognize, run the command:
+In order to create and use a template that Kruskal can recognize, run the command:
 ```bash
-cp-cli template --make name.ext --alias alias
+kruskal template --make name.ext --alias alias
 ```
 **BUT WAIT**
 
 In order to run this command you must first understand what each part means.
 
-The `template` subcommand is a collection of flags under the location `subcommands/template.py`. It contains 4 main commands:
+The `template` subcommand is a collection of flags under the location `subcommands/template.go`. It contains 4 main commands:
 
 1. `--make`: This flag allows you to create a template file under the location `.cpcli/templates` following the `--make` flag, you must put the filename of your extension in the format `filename.extension`. This flag must be followed up by the `--alias` flag.
 
@@ -107,7 +102,7 @@ Moving onto actually using the template.
 In order to use the template during a contest, here is the command:
 
 ```bash
-cp-cli template --use alias --filename name.ext
+kruskal template --use alias --filename name.ext
 ```
 This command uses the same concepts as the last, but with a few changes in the flags used.
 
@@ -115,19 +110,19 @@ This command uses the same concepts as the last, but with a few changes in the f
 
 2. `--filename`: The filename flag is used to create a filename with the format `filename.extension`.
 
-This simple yet powerful command opens up a file at the location defined in the config command at `python3 main.py config`. This is what the `Set Template Output Folder` option was meant for. Setting a location in this command means that when you use the use and filename flag command, a file is created at the location defined under `Set Template Output Folder` with the selected template alias.
+This simple yet powerful command opens up a file at the location defined in the config command at `kruskal config`. This is what the `Set Template Output Folder` option was meant for. Setting a location in this command means that when you use the use and filename flag command, a file is created at the location defined under `Set Template Output Folder` with the selected template alias.
 
 You can also use the `--list` flag in order to list all your teamplates, their aliases, and their template file names. Here is the usage:
 
 ```bash
-cp-cli template --list
+kruskal template --list
 ```
 
 ## Syncing Accounts
 
 If you setup your account(s) using the config command, you can fetch their ratings using the command:
 ```bash
-cp-cli sync
+kruskal sync
 ```
 
 This will show your changes in rating (if any).
@@ -136,10 +131,10 @@ This will show your changes in rating (if any).
 
 If you would like to quick test your code by using custom testcases (stdin/stdout) you can do so by using the following command:
 ```bash
-cp-cli test filename.extension
+kruskal test filename.extension
 ```
 
-The format here is pretty simple to follow, but for the filename, make sure to put the full path or else *CP-Cli* wont reccognize it as a file in the source directory.
+The format here is pretty simple to follow, but for the filename, make sure to put the full path or else *Kruskal* wont reccognize it as a file in the source directory.
 
 Once you enter the command, you will be asked to ask the number of testcases, **which must be an integer**, after which you can enter the input for the testcase as well as the output.
 
@@ -148,7 +143,7 @@ Once you enter the command, you will be asked to ask the number of testcases, **
 As of now, the only LeetCode specific command is the `daily` subcommand. Here is how to use it:
 
 ```bash
-cp-cli daily
+kruskal daily
 ```
 
 This will display todays daily question in a table format.
@@ -159,10 +154,10 @@ Since the Codeforces API is much more diverse when compared to the third-party L
 
 In order to use any Codeforces command, here is the format:
 ```bash
-cp-cli cf --flag
+kruskal cf --flag
 ```
 
-As of now, CP-Cli offers two commands:
+As of now, Kruskal offers two commands:
 
 - `--list`: This flag allows you to list upcoming contests in a nice table like format.
 - `--solved <contestId>/<index>`: This flag allows you to log a problem you've solved. The format is contestId/Index. Every problem on codeforces comes from a contest, so the id of the contest **not the contest number** and the index is which problem it is in a letter format.

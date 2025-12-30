@@ -4,6 +4,6 @@ This part of the documentation site aims to answer the most frequently asked que
 
 ## Q1
 
-**What is CP-Cli**
+**What is Kruskal**
 
-*CP-Cli is a command line tool built using python that aims to improve efficiency for competitive programmers during contest and practice. It has commands for quick template code turnaround, ratings, stats, graphs, and other useful tools that can help you in your journey.*
+*Kruskal is a command line tool built using python that aims to improve efficiency for competitive programmers during contest and practice. It has commands for quick template code turnaround, ratings, stats, graphs, and other useful tools that can help you in your journey.*

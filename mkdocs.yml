@@ -1,4 +1,4 @@
-site_name: CP-Cli Documentation
+site_name: Kruskal Documentation
 docs_dir: src_docs
 site_dir: docs
 nav:
