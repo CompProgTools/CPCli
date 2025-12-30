@@ -35,7 +35,7 @@ func ValidateCodeforcesUser(handle string) (bool, error) {
 }
 
 func ValidateLeetCodeUser(handle string) (bool, error) {
-	url := fmt.Sprintf("https://leetcode-api.pied.vercel.app/user/%s", handle)
+	url := fmt.Sprintf("https://leetcode-api-pied.vercel.app/user/%s/contests", handle)
 
 	client := &http.Client{Timeout: 5 * time.Second}
 	resp, err := client.Get(url)
@@ -45,6 +45,10 @@ func ValidateLeetCodeUser(handle string) (bool, error) {
 	}
 
 	defer resp.Body.Close()
+
+	if resp.StatusCode != 200 {
+		return false, nil
+	}
 
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
@@ -56,25 +60,29 @@ func ValidateLeetCodeUser(handle string) (bool, error) {
 		return false, err
 	}
 
-	detail, ok := result["detail"].(string)
-	return !ok || detail != "404: User not found", nil
+	// check if userContestRanking exists
+	if _, ok := result["userContestRanking"]; !ok {
+		return false, nil
+	}
+
+	return true, nil
 }
 
 func fetchRating(platform string, handle string) (int, error) {
 	var url string
 	
-	switch {
-	case platform == "leetcode" :
-		url = fmt.Sprintf("https://leetcode-api-pied.vercel.app/user/%s/contests", handle) // TODO: fix doesn't display the data
+	switch platform {
+	case "leetcode":
+		url = fmt.Sprintf("https://leetcode-api-pied.vercel.app/user/%s/contests", handle)
 
-	case platform == "codeforces":
+	case "codeforces":
 		url = fmt.Sprintf("https://codeforces.com/api/user.rating?handle=%s", handle)
 
 	default:
 		return 0, fmt.Errorf("unknown platform: %s", platform)
 	}
 
-	client := &http.Client{Timeout: 5 * time.Second}
+	client := &http.Client{Timeout: 10 * time.Second}
 	resp, err := client.Get(url)
 	if err != nil {
 		return 0, err
@@ -95,24 +103,27 @@ func fetchRating(platform string, handle string) (int, error) {
 }
 
 func extractRating(platform string, data map[string]interface{}) (int, error) {
-	switch {
-	case platform == "leetcode":
-		if userRank, ok := data["userContestRating"].(map[string]interface{}); ok {
-			if rating, ok := userRank["rating"].(float64); ok {
+	switch platform {
+	case "leetcode":
+		// the current rating is in userContestRanking.rating
+		if userRanking, ok := data["userContestRanking"].(map[string]interface{}); ok {
+			if rating, ok := userRanking["rating"].(float64); ok {
 				return int(rating), nil
 			}
 		}
+		// if no contest ranking, return 0 (user hasn't participated in contests)
+		return 0, nil
 
-	case platform == "codeforces": 
+	case "codeforces": 
 		if result, ok := data["result"].([]interface{}); ok && len(result) > 0 {
-			lastContest := result[len(result) - 1].(map[string]interface{})
+			lastContest := result[len(result)-1].(map[string]interface{})
 			if rating, ok := lastContest["newRating"].(float64); ok {
 				return int(rating), nil
 			}
 		}
 	}
 	
-	return 0, fmt.Errorf("could not extract rating")
+	return 0, fmt.Errorf("could not extract rating for platform: %s", platform)
 }
 
 func RunSync() error {
@@ -123,9 +134,9 @@ func RunSync() error {
 
 	updated := false
 	
-	platforms := map[string]string {
+	platforms := map[string]string{
 		"codeforces": cfg.Codeforces,
-		"leetcode": cfg.LeetCode,
+		"leetcode":   cfg.LeetCode,
 	}
 
 	for platform, handle := range platforms {
@@ -142,6 +153,7 @@ func RunSync() error {
 
 		newRating, err := fetchRating(platform, handle)
 		if err != nil {
+			fmt.Println(errorStyle.Render(fmt.Sprintf("failed to fetch %s rating: %v", platform, err)))
 			continue
 		}
 

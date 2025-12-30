@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/CompProgTools/Kruskal/config"
 	"github.com/CompProgTools/Kruskal/subcommands"
@@ -56,16 +57,22 @@ func linkAccount() error {
 		if platform == "Codeforces" {
 			valid, err = subcommands.ValidateCodeforcesUser(handle)
 		} else if platform == "LeetCode" {
-			valid, err = subcommands.ValidateCodeforcesUser(handle)
+			valid, err = subcommands.ValidateLeetCodeUser(handle)
 		}
 
 		if err != nil {
 			fmt.Println(errorStyle.Render(fmt.Sprintf("error connecting to %s: %v", platform, err)))
+			continue
 		}
 
 		if !valid {
 			fmt.Println(errorStyle.Render(fmt.Sprintf("user not found on %s. Try again.", platform)))
 			continue
+		}
+
+		platformLower := strings.ToLower(platform)
+		if err := config.SetAccount(platformLower, handle); err != nil {
+			return err
 		}
 
 		break
